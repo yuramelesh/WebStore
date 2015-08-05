@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+	<definition name="base" template="/views/tiles/layout.jsp">
+		<put-attribute name="header" value="/views/tiles/header.jsp"></put-attribute>
+		<put-attribute name="body" value=""></put-attribute>
+		<put-attribute name="footer" value="/views/tiles/footer.jsp"></put-attribute>
+	</definition>
+
+	<definition name="authors" extends="base">
+		<put-attribute name="title" value="Authors"></put-attribute>
+		<put-attribute name="body" value="/views/authors.jsp"></put-attribute>
+	</definition>
+
+	<definition name="books" extends="base">
+		<put-attribute name="title" value="Books"></put-attribute>
+		<put-attribute name="body" value="/views/books.jsp"></put-attribute>
+	</definition>
+
+	<definition name="newAuthor" extends="base">
+		<put-attribute name="title" value="New author Page"></put-attribute>
+		<put-attribute name="body" value="/views/newAuthor.jsp"></put-attribute>
+	</definition>
+
+	<definition name="addPhoto" extends="base">
+		<put-attribute name="body" value="/views/addPhoto.jsp"></put-attribute>
+		<put-attribute name="title" value="Add photo"></put-attribute>
+	</definition>
+
+	<definition name="newBook" extends="base">
+		<put-attribute name="title" value="New book Page"></put-attribute>
+		<put-attribute name="body" value="/views/newBook.jsp"></put-attribute>
+	</definition>
+
+	<definition name="profile" extends="base">
+		<put-attribute name="title" value="Profile"></put-attribute>
+		<put-attribute name="body" value="/views/profile.jsp"></put-attribute>
+	</definition>
+
+	<definition name="registration" extends="base">
+		<put-attribute name="title" value="Registration"></put-attribute>
+		<put-attribute name="body" value="/views/signUp.jsp"></put-attribute>
+	</definition>
+
+	<definition name="userList" extends="base">
+		<put-attribute name="title" value="list"></put-attribute>
+		<put-attribute name="body" value="/views/users.jsp"></put-attribute>
+	</definition>
+
+	<definition name="addProduct" extends="base">
+		<put-attribute name="title" value="New product"></put-attribute>
+		<put-attribute name="body" value="/views/addProduct.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="products" extends="base">
+		<put-attribute name="title" value="Product list"></put-attribute>
+		<put-attribute name="body" value="/views/products.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="editPage" extends="base">
+		<put-attribute name="title" value="User edit"></put-attribute>
+		<put-attribute name="body" value="/views/userEdit.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="category" extends="base">
+		<put-attribute name="title" value="Categories"></put-attribute>
+		<put-attribute name="body" value="/views/category.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="newCategory" extends="base">
+		<put-attribute name="title" value="New category"></put-attribute>
+		<put-attribute name="body" value="/views/newCategory.jsp"></put-attribute>
+	</definition>
+
+</tiles-definitions>
