@@ -17,7 +17,6 @@
 <title>List of users</title>
 </head>
 <body>
-
 	<div class="row">
 		<div class="col-md-1"></div>
 		<div class="col-md-10">
@@ -28,10 +27,11 @@
 			<table class="table table-striped">
 				<thead>
 					<tr>
-						<th>id</th>
+						<th>Id</th>
 						<th>Name</th>
 						<th>E-mail</th>
 						<th>Password</th>
+						<th>#</th>
 						<th>#</th>
 					</tr>
 				</thead>
@@ -42,7 +42,14 @@
 							<td><a href="profile?userId=${user.id}">${user.name}</a></td>
 							<td>${user.email}</td>
 							<td>${user.password}</td>
-							<td><a href="editPage?id=${user.id}">Edit</a></td>
+							<td><form action="editPage?id=${user.id}">
+							<button type="submit" class="btn btn-warning" name="id"
+									value="${user.id}">edit</button>
+						</form></td>
+							<td><form action="removeUser">
+							<button type="submit" class="btn btn-danger" name="id"
+									value="${user.id}">remove</button>
+						</form></td>
 						</tr>
 					</jstl:forEach>
 				</tbody>
@@ -50,8 +57,5 @@
 		</div>
 		<div class="col-md-1"></div>
 	</div>
-
 </body>
 </html>
-
-<!-- ?id=${author.id} -->
