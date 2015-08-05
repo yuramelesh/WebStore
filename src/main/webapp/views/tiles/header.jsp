@@ -24,7 +24,8 @@
 					WEB<a href="index.jsp"><small> store</small></a>
 				</h1>
 			</div>
-			<div class="col-md-2"></div>
+			<div class="col-md-8"></div>
+			<div class="col-md-2"><a href="logout">logout</a></div>
 		</div>
 	</div>
 </body>

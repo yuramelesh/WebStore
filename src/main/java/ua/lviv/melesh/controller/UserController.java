@@ -3,6 +3,7 @@ package ua.lviv.melesh.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -48,7 +49,8 @@ public class UserController {
 		return "editPage";
 
 	}
-
+	
+	@Secured({"ROLE_ADMIN"})
 	@RequestMapping(value = "/editingName")
 	public String editingUserName(Model model,
 			@RequestParam(value = "id") Integer id,

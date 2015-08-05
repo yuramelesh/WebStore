@@ -8,15 +8,7 @@
 						http://www.springframework.org/schema/context/spring-context-3.2.xsd ">
 
 	<import resource="classpath:/appContext.xml" />
-	<!-- <bean -->
-	<!-- class="org.springframework.web.servlet.view.InternalResourceViewResolver"> -->
-	<!-- <property name="prefix"> -->
-	<!-- <value>/WEB-INF/views/</value> -->
-	<!-- </property> -->
-	<!-- <property name="suffix"> -->
-	<!-- <value>.jsp</value> -->
-	<!-- </property> -->
-	<!-- </bean> -->
+	<!-- security:global-method-security secured-annotations="enabled"/ -->
 
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
