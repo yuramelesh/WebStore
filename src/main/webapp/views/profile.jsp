@@ -16,12 +16,12 @@
 </head>
 <body>
 	<div>
-		<h1>${author.name}`s profile</h1>
+		<h1>${User.name}`s profile</h1>
 	</div>
-<jstl:if test="${author.photoUrl != null}">
-		<img src="${author.photoUrl}" height="150" width="150">
-</jstl:if>
-	<p><b>Age:</b> ${author.age}</p>
+	<jstl:if test="${user.photoUrl != null}">
+		<img src="${user.photoUrl}" height="150" width="150">
+	</jstl:if>
+	
 	<table border="1">
 		<thead>
 			<tr>

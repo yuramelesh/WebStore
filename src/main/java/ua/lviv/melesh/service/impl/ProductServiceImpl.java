@@ -33,4 +33,8 @@ public class ProductServiceImpl implements ProductService {
 		return dao.getById(id);
 	}
 
+	public void deleteProduct(Product product) {
+		dao.delete(product);
+	}
+
 }

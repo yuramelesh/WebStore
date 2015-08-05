@@ -33,4 +33,8 @@ public class UserServiceImpl implements UserService {
 		return dao.getById(id);
 	}
 
+	public void deleteUser(User user) {
+		dao.delete(user);
+	}
+
 }

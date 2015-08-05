@@ -25,24 +25,34 @@
 				<h3>Product list</h3>
 			</div>
 
-	<table class="table table-striped">
-		<thead>
-			<tr>
-				<th>Name</th>
-				<th>Price</th>
-				<th>Category</th>
-			</tr>
-		</thead>
-		<tbody>
-			<jstl:forEach items="${products}" var="product">
-				<tr>
-					<td>${product.name}</td>
-					<td>${product.price}</td>
-					<td>${product.category}</td>
-				</tr>
-			</jstl:forEach>
-		</tbody>
-	</table>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Price</th>
+						<th>Category</th>
+						<th>#</th>
+						<th>#</th>
+					</tr>
+				</thead>
+				<tbody>
+					<jstl:forEach items="${products}" var="product">
+						<tr>
+							<td>${product.name}</td>
+							<td>${product.price}</td>
+							<td>${product.category}</td>
+							<td><form action="productCard?id=${product.id}">
+							<button type="submit" class="btn btn-warning" name="id"
+									value="${product.id}">edit</button>
+						</form></td>
+							<td><form action="removeProduct">
+									<button type="submit" class="btn btn-danger" name="id"
+										value="${product.id}">remove</button>
+								</form></td>
+						</tr>
+					</jstl:forEach>
+				</tbody>
+			</table>
 		</div>
 		<div class="col-md-1"></div>
 	</div>

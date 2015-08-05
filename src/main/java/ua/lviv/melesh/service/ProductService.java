@@ -3,9 +3,12 @@ package ua.lviv.melesh.service;
 import java.util.List;
 
 import ua.lviv.melesh.domain.Product;
+import ua.lviv.melesh.domain.User;
 
 public interface ProductService {
 	void insertProduct(Product product);
+	
+	void deleteProduct(Product product);
 
 	List<Product> getAllProducts();
 

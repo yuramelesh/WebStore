@@ -23,7 +23,6 @@ public class ProductCategoryServiceImpl implements ProductCategoryService {
 
 	public void deleteProductCategory(ProductCategory productCategory) {
 		dao.delete(productCategory);
-
 	}
 
 	public List<ProductCategory> getAllProductCategory() {

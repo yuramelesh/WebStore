@@ -70,7 +70,7 @@ public class UserController {
 		uService.insertUser(user);
 		return "redirect:/editPage?id=" + id;
 	}
-	
+
 	@RequestMapping(value = "/editingPassword")
 	public String editingUserPassword(Model model,
 			@RequestParam(value = "id") Integer id,
@@ -80,5 +80,13 @@ public class UserController {
 		user.setPassword(password);
 		uService.insertUser(user);
 		return "redirect:/editPage?id=" + id;
+	}
+
+	@RequestMapping(value = "/removeUser")
+	public String removeCategory(Model model,
+			@RequestParam(value = "id") Integer id) {
+		User user = uService.getUserById(id);
+		uService.deleteUser(user);
+		return "redirect:/userList";
 	}
 }

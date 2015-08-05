@@ -27,6 +27,8 @@ public class Product {
 	private String category;
 	@Column
 	private Integer price;
+	@Column
+	private String photo;
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "user")
 	private List<UserOrder> userOrder;
@@ -65,6 +67,14 @@ public class Product {
 
 	public void setCategory(String category) {
 		this.category = category;
+	}
+
+	public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
 	}
 
 }

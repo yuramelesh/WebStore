@@ -74,5 +74,10 @@
 		<put-attribute name="title" value="New category"></put-attribute>
 		<put-attribute name="body" value="/views/newCategory.jsp"></put-attribute>
 	</definition>
+	
+	<definition name="productCard" extends="base">
+		<put-attribute name="title" value="Card"></put-attribute>
+		<put-attribute name="body" value="/views/productCard.jsp"></put-attribute>
+	</definition>
 
 </tiles-definitions>

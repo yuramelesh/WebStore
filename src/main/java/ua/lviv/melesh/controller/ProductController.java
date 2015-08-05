@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import ua.lviv.melesh.domain.Product;
 import ua.lviv.melesh.domain.ProductCategory;
+import ua.lviv.melesh.domain.User;
 import ua.lviv.melesh.service.ProductCategoryService;
 import ua.lviv.melesh.service.ProductService;
 
@@ -83,4 +84,29 @@ public class ProductController {
 		return "redirect:/category";
 	}
 
+	@RequestMapping(value = "/removeProduct")
+	public String removeProduct(Model model,
+			@RequestParam(value = "id") Integer id) {
+		Product product = pService.getProductById(id);
+		pService.deleteProduct(product);
+		return "redirect:/products";
+	}
+
+	@RequestMapping(value = "/productCard")
+	public String editProduct(Model model, @RequestParam(value = "id") Integer id) {
+		model.addAttribute("product", pService.getProductById(id));
+		return "productCard";
+
+	}
+
+	@RequestMapping(value = "/editingProductName")
+	public String editingProductName(Model model,
+			@RequestParam(value = "id") Integer id,
+			@RequestParam(value = "newName") String name) {
+		model.addAttribute("product", pService.getProductById(id));
+		Product product = pService.getProductById(id);
+		product.setName(name);
+		pService.insertProduct(product);
+		return "redirect:/editingProductName?id=" + id;
+	}
 }
