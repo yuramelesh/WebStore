@@ -53,6 +53,15 @@
 						</form>
 					</tr>
 					<tr>
+						<td>Photo URL</td>
+						<td>${user.photoUrl}</td>
+						<form action="newPhoto">
+							<td><input type="text" class="form-control" name="newPhoto"></td>
+							<td><button type="submit" class="btn btn-warning" name="id"
+									value="${user.id}">change</button></td>
+						</form>
+					</tr>
+					<tr>
 						<td>Password</td>
 						<td>${user.password}</td>
 						<form action="editingPassword">

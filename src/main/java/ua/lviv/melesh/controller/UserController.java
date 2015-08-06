@@ -2,8 +2,8 @@ package ua.lviv.melesh.controller;
 
 import java.util.List;
 
+import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,11 +34,11 @@ public class UserController {
 	public String creatingUser(Model model,
 			@RequestParam(value = "name") String name,
 			@RequestParam(value = "email") String email,
-			@RequestParam(value = "password") Integer password) {
+			@RequestParam(value = "password") String password) {
 		User user = new User();
 		user.setName(name);
 		user.setEmail(email);
-		user.setPassword(password);
+		user.setPassword(DigestUtils.md5Hex(password));
 		uService.insertUser(user);
 		return "redirect:/userList";
 	}
@@ -49,8 +49,8 @@ public class UserController {
 		return "editPage";
 
 	}
-	
-	@Secured({"ROLE_ADMIN"})
+
+	// @Secured({"ROLE_ADMIN"})
 	@RequestMapping(value = "/editingName")
 	public String editingUserName(Model model,
 			@RequestParam(value = "id") Integer id,
@@ -73,22 +73,39 @@ public class UserController {
 		return "redirect:/editPage?id=" + id;
 	}
 
+	@RequestMapping(value = "/newPhoto")
+	public String newUserPhoto(Model model,
+			@RequestParam(value = "id") Integer id,
+			@RequestParam(value = "newPhoto") String photoUrl) {
+		model.addAttribute("user", uService.getUserById(id));
+		User user = uService.getUserById(id);
+		user.setPhotoUrl(photoUrl);
+		uService.insertUser(user);
+		return "redirect:/editPage?id=" + id;
+	}
+	
 	@RequestMapping(value = "/editingPassword")
 	public String editingUserPassword(Model model,
 			@RequestParam(value = "id") Integer id,
-			@RequestParam(value = "newPassword") Integer password) {
+			@RequestParam(value = "newPassword") String password) {
 		model.addAttribute("user", uService.getUserById(id));
 		User user = uService.getUserById(id);
-		user.setPassword(password);
+		user.setPassword(DigestUtils.md5Hex(password));
 		uService.insertUser(user);
 		return "redirect:/editPage?id=" + id;
 	}
 
 	@RequestMapping(value = "/removeUser")
-	public String removeCategory(Model model,
-			@RequestParam(value = "id") Integer id) {
+	public String removeUser(Model model, @RequestParam(value = "id") Integer id) {
 		User user = uService.getUserById(id);
 		uService.deleteUser(user);
 		return "redirect:/userList";
+	}
+
+	@RequestMapping(value = "/profile")
+	public String profilePage(Model model,
+			@RequestParam(value = "id") Integer id) {
+		model.addAttribute("user", uService.getUserById(id));
+		return "profile";
 	}
 }

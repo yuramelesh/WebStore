@@ -61,19 +61,44 @@ public class ProductController {
 	@RequestMapping(value = "/productCard")
 	public String editProduct(Model model,
 			@RequestParam(value = "id") Integer id) {
+		List<ProductCategory> productCategory = cService
+				.getAllProductCategory();
+		model.addAttribute("productCategory", productCategory);
 		model.addAttribute("product", pService.getProductById(id));
 		return "productCard";
 
 	}
 
-	@RequestMapping(value = "/editingProductName")
-	public String editingProductName(Model model,
-			@RequestParam(value = "id") Integer id,
-			@RequestParam(value = "newName") String name) {
+	@RequestMapping(value = "/newProductName")
+	public String newProductName(Model model,
+			@RequestParam(value = "newName") String name,
+			@RequestParam(value = "id") Integer id) {
 		model.addAttribute("product", pService.getProductById(id));
 		Product product = pService.getProductById(id);
 		product.setName(name);
 		pService.insertProduct(product);
-		return "redirect:/editingProductName?id=" + id;
+		return "redirect:/productCard?id=" + id;
+	}
+
+	@RequestMapping(value = "/editingCategory")
+	public String editingCategory(Model model,
+			@RequestParam(value = "newCategory") String category,
+			@RequestParam(value = "id") Integer id) {
+		model.addAttribute("product", pService.getProductById(id));
+		Product product = pService.getProductById(id);
+		product.setCategory(category);
+		pService.insertProduct(product);
+		return "redirect:/productCard?id=" + id;
+	}
+
+	@RequestMapping(value = "/newProductPrice")
+	public String newProductPrice(Model model,
+			@RequestParam(value = "newPrice") Integer price,
+			@RequestParam(value = "id") Integer id) {
+		model.addAttribute("product", pService.getProductById(id));
+		Product product = pService.getProductById(id);
+		product.setPrice(price);
+		pService.insertProduct(product);
+		return "redirect:/productCard?id=" + id;
 	}
 }

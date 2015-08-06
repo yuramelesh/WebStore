@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="jstl"%>
-<%@taglib uri="http://www.springframework.org/security/tags"
-	prefix="sec"%>
+<%@taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
 <%@ page import="java.util.List"%>
 <%@ page import="ua.lviv.melesh.domain.User"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -33,28 +32,26 @@
 						<th>Name</th>
 						<th>E-mail</th>
 						<th>Password</th>
-						
+
 					</tr>
 				</thead>
 				<tbody>
 					<jstl:forEach items="${users}" var="user">
 						<tr>
 							<td>${user.id}</td>
-							<td><a href="profile?userId=${user.id}">${user.name}</a></td>
+							<td><a href="profile?id=${user.id}">${user.name}</a></td>
 							<td>${user.email}</td>
 							<td>${user.password}</td>
-
-							<sec:authorize access="hasRole('ROLE_ADMIN')">
-
-								<td><form action="editPage?id=${user.id}">
-										<button type="submit" class="btn btn-warning" name="id"
-											value="${user.id}">edit</button>
-									</form></td>
-								<td><form action="removeUser">
-										<button type="submit" class="btn btn-danger" name="id"
-											value="${user.id}">remove</button>
-									</form></td>
-							</sec:authorize>
+<sec:authorize access="hasRole('ROLE_ADMIN')">
+							<td><form action="editPage?id=${user.id}">
+									<button type="submit" class="btn btn-warning" name="id"
+										value="${user.id}">edit</button>
+								</form></td>
+							<td><form action="removeUser">
+									<button type="submit" class="btn btn-danger" name="id"
+										value="${user.id}">remove</button>
+								</form></td>
+</sec:authorize>
 						</tr>
 					</jstl:forEach>
 				</tbody>

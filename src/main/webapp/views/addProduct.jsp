@@ -29,8 +29,7 @@
 		<div class="col-md-1"></div>
 		<form action="products" method="POST">
 			<div class="col-md-4">
-				Name <input class="form-control" type="text" name="name">
-				<br>
+				Name <input class="form-control" type="text" name="name"> <br>
 				Category <select class="form-control" name="category">
 					<jstl:forEach items="${productCategory}" var="category">
 						<option>${category.name}</option>
@@ -44,9 +43,9 @@
 				</div>
 				<br>
 				<div>
-					<button type="submit" class="btn btn-default">Add
-						product</button>
+					<button type="submit" class="btn btn-default">Add product</button>
 				</div>
+				<br>
 			</div>
 			<div class="col-md-4">
 				Photo<input class="form-control" type="image" name="photoUrl">

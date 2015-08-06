@@ -18,20 +18,25 @@
 <title>New category</title>
 </head>
 <body>
-
-	<div>
-		<h3>New Category</h3>
-	</div>
 	<div class="row">
-		<div class="col-md-4">
-			<form action="addingCategory">
-				<div class="form-group">
-					<label for="inputName">Category name</label> <input type="text" class="form-control" name="name">
+		<div class="col-md-1"></div>
+		<div class="col-md-10">
+			<div>
+				<h3>New category</h3>
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+					<form action="addingCategory">
+						<div class="form-group">
+							<label for="inputName">Category name</label> <input type="text"
+								class="form-control" name="name">
+						</div>
+						<button type="submit" class="btn btn-default">Submit</button>
+					</form>
+					<br>
 				</div>
-				<button type="submit" class="btn btn-default">Submit</button>
-			</form>
+			</div>
 		</div>
 	</div>
-	<p></p>
 </body>
 </html>

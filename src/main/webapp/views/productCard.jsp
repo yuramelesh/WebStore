@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="jstl"%>
 <%@ page import="java.util.List"%>
 <%@ page import="ua.lviv.melesh.domain.Product"%>
+<%@ page import="ua.lviv.melesh.domain.ProductCategory"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -23,7 +24,7 @@
 
 		<div class="col-md-10">
 
-			<h3>${product.name} - card</h3>
+			<h3>${product.name}-card</h3>
 			<small><a href="products">back to product list</a></small>
 
 			<table class="table table-striped">
@@ -37,7 +38,7 @@
 					<tr>
 						<td>Name</td>
 						<td>${product.name}</td>
-						<form action="editingProductName">
+						<form action="newProductName">
 							<td><input type="text" class="form-control" name="newName"></td>
 							<td><button type="submit" class="btn btn-warning" name="id"
 									value="${product.id}">change</button></td>
@@ -46,7 +47,7 @@
 					<tr>
 						<td>Price</td>
 						<td>${product.price}</td>
-						<form action="editingPrice">
+						<form action="newProductPrice">
 							<td><input type="text" class="form-control" name="newPrice"></td>
 							<td><button type="submit" class="btn btn-warning" name="id"
 									value="${product.id}">change</button></td>
@@ -55,12 +56,15 @@
 					<tr>
 						<td>Category</td>
 						<td>${product.category}</td>
-						<form action="editingCategory">
-							<td><input type="text" class="form-control"
-								name="newCategory"></td>
-							<td><button type="submit" class="btn btn-warning" name="id"
-									value="${product.id}">change</button></td>
-						</form>
+						<td><form action="editingCategory">
+								<select class="form-control" name="newCategory">
+									<jstl:forEach items="${productCategory}" var="category">
+										<option>${category.name}</option>
+									</jstl:forEach>
+								</select><br>
+								<td><button type="submit" class="btn btn-warning" name="id"
+										value="${product.id}">change</button></td>
+							</form></td>
 					</tr>
 				</tbody>
 			</table>

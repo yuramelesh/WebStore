@@ -6,18 +6,18 @@
                     http://www.springframework.org/schema/security 
                     http://www.springframework.org/schema/security/spring-security-3.2.xsd">
 	<http use-expressions="true">
-		<intercept-url pattern="/**" access="isAuthenticated()" />
+		<!-- <intercept-url pattern="/**" access="isAuthenticated()" /> -->
 		<form-login />
 		<logout logout-url="/logout" logout-success-url="/index.jsp" />
+		<anonymous username="guest" granted-authority="ROLE_ANONYMOUS" />
 	</http>
 
 	<authentication-manager>
 		<authentication-provider>
 			<user-service>
-				<user name="admin" password="admin" authorities="ROLE_ADMIN"/>
-				<user name="user" password="user" authorities="ROLE_USER"/>
+				<user name="admin" password="admin" authorities="ROLE_ADMIN" />
+				<user name="user" password="user" authorities="ROLE_USER" />
 			</user-service>
 		</authentication-provider>
 	</authentication-manager>
-</beans:beans> 
-                    
+</beans:beans>      

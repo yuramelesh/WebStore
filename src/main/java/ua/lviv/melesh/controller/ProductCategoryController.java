@@ -50,11 +50,4 @@ public class ProductCategoryController {
 		return "redirect:/category";
 	}
 
-	@RequestMapping(value = "/index")
-	public void startPage(Model model) {
-		List<ProductCategory> productCategory = cService.getAllProductCategory();
-		model.addAttribute("productCategory", productCategory);
-
-	}
-
 }

@@ -18,26 +18,34 @@
 <title>Registration</title>
 </head>
 <body>
-
-	<div>
-		<h3>New user registration</h3>
-	</div>
 	<div class="row">
-		<div class="col-md-4">
-			<form action="userList" method="POST">
-				<div class="form-group">
-					<label for="inputName">User name</label> <input type="text" class="form-control" name="name">
+		<div class="col-md-1"></div>
+		<div class="col-md-10">
+			<div>
+				<h3>Register new user</h3>
+			</div>
+
+			<div class="row">
+				<div class="col-md-4">
+					<form action="userList" method="POST">
+						<div class="form-group">
+							<label for="inputName">User name</label> <input type="text"
+								class="form-control" name="name">
+						</div>
+						<div class="form-group">
+							<label for="inputEmail">Email address</label> <input type="email"
+								class="form-control" name="email">
+						</div>
+						<div class="form-group">
+							<label for="inputPassword">Password</label> <input
+								type="password" class="form-control" name="password">
+						</div>
+						<button type="submit" class="btn btn-default">Submit</button>
+					</form>
+					<br>
 				</div>
-				<div class="form-group">
-					<label for="inputEmail">Email address</label> <input type="email" class="form-control" name="email">
-				</div>
-				<div class="form-group">
-					<label for="inputPassword">Password</label> <input type="password" class="form-control" name="password">
-				</div>
-				<button type="submit" class="btn btn-default">Submit</button>
-			</form>
+			</div>
 		</div>
 	</div>
-	<p></p>
 </body>
 </html>

@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="jstl"%>
+<%@taglib uri="http://www.springframework.org/security/tags"
+	prefix="sec"%>
 <%@ page import="java.util.List"%>
 <%@ page import="ua.lviv.melesh.domain.User"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -31,8 +33,7 @@
 						<th>Name</th>
 						<th>Price</th>
 						<th>Category</th>
-						<th>#</th>
-						<th>#</th>
+
 					</tr>
 				</thead>
 				<tbody>
@@ -41,14 +42,16 @@
 							<td>${product.name}</td>
 							<td>${product.price}</td>
 							<td>${product.category}</td>
-							<td><form action="productCard?id=${product.id}">
-							<button type="submit" class="btn btn-warning" name="id"
-									value="${product.id}">edit</button>
-						</form></td>
-							<td><form action="removeProduct">
-									<button type="submit" class="btn btn-danger" name="id"
-										value="${product.id}">remove</button>
-								</form></td>
+							<sec:authorize access="hasRole('ROLE_ADMIN')">
+								<td><form action="productCard?id=${product.id}">
+										<button type="submit" class="btn btn-warning" name="id"
+											value="${product.id}">edit</button>
+									</form></td>
+								<td><form action="removeProduct">
+										<button type="submit" class="btn btn-danger" name="id"
+											value="${product.id}">remove</button>
+									</form></td>
+							</sec:authorize>
 						</tr>
 					</jstl:forEach>
 				</tbody>

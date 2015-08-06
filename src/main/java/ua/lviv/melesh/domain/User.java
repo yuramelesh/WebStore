@@ -24,9 +24,11 @@ public class User {
 	@Column
 	private String name;
 	@Column
-	private Integer password;
+	private String password;
 	@Column
 	private String email;
+	@Column
+	private String photoUrl;
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "user")
 	private List<UserOrder> userOrder;
@@ -35,7 +37,7 @@ public class User {
 		super();
 	}
 
-	public User(String name, String email, Integer password) {
+	public User(String name, String email, String password) {
 		super();
 		this.name = name;
 		this.email = email;
@@ -58,11 +60,11 @@ public class User {
 		this.name = name;
 	}
 
-	public Integer getPassword() {
+	public String getPassword() {
 		return password;
 	}
 
-	public void setPassword(Integer password) {
+	public void setPassword(String password) {
 		this.password = password;
 	}
 
@@ -80,6 +82,14 @@ public class User {
 
 	public void setUserOrder(List<UserOrder> userOrder) {
 		this.userOrder = userOrder;
+	}
+
+	public String getPhotoUrl() {
+		return photoUrl;
+	}
+
+	public void setPhotoUrl(String photoUrl) {
+		this.photoUrl = photoUrl;
 	}
 
 	@Override
