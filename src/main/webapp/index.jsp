@@ -45,7 +45,7 @@
 
 				<div class="btn-group">
 					<sec:authorize access="hasRole('ROLE_ANONYMOUS')">
-						<a href="spring_security_login"><button type="button"
+						<a href="login.jsp"><button type="button"
 								class="btn btn-default">Log in</button></a>
 						<a href="registration"><button type="submit"
 								class="btn btn-default">Sign up</button></a>

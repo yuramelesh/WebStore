@@ -28,40 +28,29 @@
 					</h1>
 				</div>
 			</div>
-			<div class="col-md-2"></div>
-
-			<div class="col-md-4" style="margin-top: 20px;">
-				<div class="btn-group">
-
-					<input type="text" class="btn btn-default"></input>
-
-					<button type="button" class="btn btn-default">Search</button>
-				</div>
-			</div>
-
-			<div class="col-md-2"></div>
-
-			<div class="col-md-2" style="margin-top: 20px;">
-
-				<div class="btn-group">
-				
-					<sec:authorize access="hasRole('ROLE_ANONYMOUS')">
-						<a href="spring_security_login"><button type="button"
-								class="btn btn-default">Log in</button></a>
-						<a href="registration"><button type="submit"
-								class="btn btn-default">Sign up</button></a>
-								<center><p>hi guest</p></center>
-					</sec:authorize>
-					
-					<sec:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_USER')">
-						<a href="logout"><button type="button" class="btn btn-default">logout</button></a>
-					</sec:authorize>
-					
-				</div>
-
-			</div>
-
 		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-2"></div>
+		<div class="col-md-3">
+			<h3>Log in form</h3>
+			<form name='...' action='j_spring_security_check' method='POST'>
+
+				Username<input class="form-control" type='text' name='j_username'
+					value=''> Password<input class="form-control"
+					type='password' name='j_password' /> <br>
+				<button type="submit" class="btn btn-default">login</button>
+<p></p>
+			</form>
+		</div>
+	</div>
+
+
+	<div class="panel panel-default">
+		<center>
+			<div class="panel-body">Melesh &#169 2015</div>
+		</center>
 	</div>
 </body>
 </html>
