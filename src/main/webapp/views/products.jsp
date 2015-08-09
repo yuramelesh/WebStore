@@ -25,23 +25,29 @@
 		<div class="col-md-10">
 			<div>
 				<h3>Product list</h3>
+				<div class="col-md-1"><form action="addProduct">
+					<button type="submit" class="btn btn-warning">add product</button>
+				</form>
 			</div>
 
 			<table class="table table-striped">
 				<thead>
 					<tr>
+						<th></th>
 						<th>Name</th>
-						<th>Price</th>
 						<th>Category</th>
-
+						<th>Price</th>
 					</tr>
 				</thead>
 				<tbody>
 					<jstl:forEach items="${products}" var="product">
 						<tr>
+							<td><jstl:if test="${product.photo != null}">
+									<img height="100" src="${product.photo}" />
+								</jstl:if></td>
 							<td>${product.name}</td>
-							<td>${product.price}</td>
 							<td>${product.category}</td>
+							<td>${product.price}</td>
 							<sec:authorize access="hasRole('ROLE_ADMIN')">
 								<td><form action="productCard?id=${product.id}">
 										<button type="submit" class="btn btn-warning" name="id"
@@ -57,7 +63,7 @@
 				</tbody>
 			</table>
 		</div>
-		<div class="col-md-1"></div>
+		</div>
 	</div>
 </body>
 </html>

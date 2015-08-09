@@ -10,31 +10,6 @@
 		<put-attribute name="footer" value="/views/tiles/footer.jsp"></put-attribute>
 	</definition>
 
-	<definition name="authors" extends="base">
-		<put-attribute name="title" value="Authors"></put-attribute>
-		<put-attribute name="body" value="/views/authors.jsp"></put-attribute>
-	</definition>
-
-	<definition name="books" extends="base">
-		<put-attribute name="title" value="Books"></put-attribute>
-		<put-attribute name="body" value="/views/books.jsp"></put-attribute>
-	</definition>
-
-	<definition name="newAuthor" extends="base">
-		<put-attribute name="title" value="New author Page"></put-attribute>
-		<put-attribute name="body" value="/views/newAuthor.jsp"></put-attribute>
-	</definition>
-
-	<definition name="addPhoto" extends="base">
-		<put-attribute name="body" value="/views/addPhoto.jsp"></put-attribute>
-		<put-attribute name="title" value="Add photo"></put-attribute>
-	</definition>
-
-	<definition name="newBook" extends="base">
-		<put-attribute name="title" value="New book Page"></put-attribute>
-		<put-attribute name="body" value="/views/newBook.jsp"></put-attribute>
-	</definition>
-
 	<definition name="profile" extends="base">
 		<put-attribute name="title" value="Profile"></put-attribute>
 		<put-attribute name="body" value="/views/profile.jsp"></put-attribute>
@@ -78,6 +53,21 @@
 	<definition name="productCard" extends="base">
 		<put-attribute name="title" value="Card"></put-attribute>
 		<put-attribute name="body" value="/views/productCard.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="welcome" extends="base">
+		<put-attribute name="title" value="welcome"></put-attribute>
+		<put-attribute name="body" value="/welcomeScreen.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="productProfile" extends="base">
+		<put-attribute name="title" value="profile"></put-attribute>
+		<put-attribute name="body" value="/views/productProfile.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="cart" extends="base">
+		<put-attribute name="title" value="profile"></put-attribute>
+		<put-attribute name="body" value="/views/cart.jsp"></put-attribute>
 	</definition>
 
 </tiles-definitions>

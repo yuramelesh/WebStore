@@ -24,7 +24,7 @@
 			<div class="col-md-2">
 				<div style="margin-left: 20px;">
 					<h1>
-						WEB<small> <a href="index.jsp">store</a></small>
+						WEB<small> <a href="welcome">store</a></small>
 					</h1>
 				</div>
 			</div>
@@ -44,22 +44,27 @@
 			<div class="col-md-2" style="margin-top: 20px;">
 
 				<div class="btn-group">
-				
+
 					<sec:authorize access="hasRole('ROLE_ANONYMOUS')">
-						<a href="spring_security_login"><button type="button"
+						<a href="login.jsp"><button type="button"
 								class="btn btn-default">Log in</button></a>
 						<a href="registration"><button type="submit"
 								class="btn btn-default">Sign up</button></a>
-								<center><p>hi guest</p></center>
 					</sec:authorize>
-					
+					<sec:authorize access="hasRole('ROLE_USER')">
+						<a href="cart">cart</a>
+					</sec:authorize>
 					<sec:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_USER')">
 						<a href="logout"><button type="button" class="btn btn-default">logout</button></a>
 					</sec:authorize>
-					
+
 				</div>
 
 			</div>
+			<sec:authorize access="hasRole('ROLE_ADMIN')"><p>
+				<a href="addProduct">addProduct</a><a href="products">products</a><a
+					href="userList">userList</a><a href="category">category</a>
+			</p></sec:authorize>
 
 		</div>
 	</div>

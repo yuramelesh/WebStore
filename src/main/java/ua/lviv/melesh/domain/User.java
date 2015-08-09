@@ -29,6 +29,8 @@ public class User {
 	private String email;
 	@Column
 	private String photoUrl;
+	@Column
+	private String role;
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "user")
 	private List<UserOrder> userOrder;
@@ -42,6 +44,7 @@ public class User {
 		this.name = name;
 		this.email = email;
 		this.password = password;
+		this.role = "ROLE_USER";
 	}
 
 	public int getId() {
@@ -90,6 +93,14 @@ public class User {
 
 	public void setPhotoUrl(String photoUrl) {
 		this.photoUrl = photoUrl;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
 	}
 
 	@Override

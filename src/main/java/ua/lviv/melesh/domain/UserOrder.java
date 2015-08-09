@@ -24,6 +24,9 @@ public class UserOrder {
 
 	@Column
 	private String descr;
+	
+	@Column
+	private boolean status = false;
 
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_id")
@@ -66,6 +69,22 @@ public class UserOrder {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public List<Product> getProducts() {
+		return products;
+	}
+
+	public void setProducts(List<Product> products) {
+		this.products = products;
+	}
+
+	public boolean isStatus() {
+		return status;
+	}
+
+	public void setStatus(boolean status) {
+		this.status = status;
 	}
 
 }

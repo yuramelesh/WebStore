@@ -5,6 +5,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="jstl"%>
 <%@ page import="java.util.List"%>
 <%@ page import="ua.lviv.melesh.domain.User"%>
+<%@ page import="ua.lviv.melesh.domain.Product"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -49,7 +50,9 @@
 								class="btn btn-default">Log in</button></a>
 						<a href="registration"><button type="submit"
 								class="btn btn-default">Sign up</button></a>
-								<center><p>hi guest</p></center>
+						<center>
+							<p>hi guest</p>
+						</center>
 					</sec:authorize>
 					<sec:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_USER')">
 						<a href="logout"><button type="button" class="btn btn-default">logout</button></a>
@@ -57,37 +60,25 @@
 				</div>
 
 			</div>
-
 		</div>
-	</div>
+		<sec:authorize access="hasRole('ROLE_ADMIN')">
+<center>
+			<a href="userList">  Show all user</a>
+			<a href="products">  List products</a>
+			<a href="addProduct">  Add product</a>
+			<a href="category">  Categories</a>
+</center>
+		</sec:authorize>
 
-	<table class="form-group" border="1">
-		<thead>
-			<tr>
-				<th>Navigation</th>
-			</tr>
-			<tr>
-				<th><a href="userList"> - Show all user</a></th>
-			</tr>
-			<tr>
-				<th><a href="products"> - List products</a></th>
-			</tr>
-			<sec:authorize access="hasRole('ROLE_ADMIN')">
-				<tr>
-					<th><a href="addProduct"> - Add product</a></th>
-				</tr>
-			</sec:authorize>
-			<sec:authorize access="hasRole('ROLE_ADMIN')">
-				<tr>
-					<th><a href="category"> - Categories</a></th>
-				</tr>
-			</sec:authorize>
-		</thead>
-	</table>
-	<div class="panel panel-default">
-		<center>
-			<div class="panel-body">Melesh &#169 2015</div>
-		</center>
-	</div>
+<!--  -->
+
+
+
+<!--  -->
+		<div class="panel panel-default">
+			<center>
+				<div class="panel-body">Melesh &#169 2015</div>
+			</center>
+		</div>
 </body>
 </html>

@@ -2,7 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="jstl"%>
 <%@ page import="java.util.List"%>
-<%@ page import="ua.lviv.melesh.domain.ProductCategory"%>
+<%@ page import="ua.lviv.melesh.domain.Product"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -14,29 +14,22 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script
 	src='<jstl:url value="/resources/bootstrap-3.3.5-dist/js/bootstrap.min.js" />'></script>
-
-<title>New category</title>
 </head>
 <body>
-	<div class="row">
-		<div class="col-md-1"></div>
-		<div class="col-md-10">
-			<div>
-				<h3>New category</h3>
-			</div>
-			<div class="row">
-				<div class="col-md-4">
-					<form action="addingCategory">
-						<div class="form-group">
-							<input type="text"
-								class="form-control" name="name">
-						</div>
-						<button type="submit" class="btn btn-default">Submit</button>
-					</form>
-					<br>
-				</div>
-			</div>
-		</div>
+	<div>
+		<h1>${product.name}`s profile</h1>
 	</div>
+	<jstl:if test="${product.photo != null}">
+		<img src="${product.photo}" height="150">
+	</jstl:if>
+	<table class="table table-striped">
+				<tr>
+					<td>${product.name}</td>
+				</tr>
+				<tr>
+					<td>${product.price}$</td>
+				</tr>
+			</table>
+	
 </body>
 </html>

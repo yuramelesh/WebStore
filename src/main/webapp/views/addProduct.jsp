@@ -48,7 +48,7 @@
 				<br>
 			</div>
 			<div class="col-md-4">
-				Photo<input class="form-control" type="image" name="photoUrl">
+				Photo<input type="text" class="form-control" name="productPhoto">
 			</div>
 		</form>
 		<div class="col-md-1"></div>

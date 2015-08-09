@@ -41,11 +41,13 @@ public class ProductController {
 	public String creatingProduct(Model model,
 			@RequestParam(value = "name") String name,
 			@RequestParam(value = "price") Integer price,
+			@RequestParam(value = "productPhoto") String photo,
 			@RequestParam(value = "category") String category) {
 		Product product = new Product();
 		product.setName(name);
 		product.setPrice(price);
 		product.setCategory(category);
+		product.setPhoto(photo);
 		pService.insertProduct(product);
 		return "redirect:/products";
 	}
@@ -100,5 +102,19 @@ public class ProductController {
 		product.setPrice(price);
 		pService.insertProduct(product);
 		return "redirect:/productCard?id=" + id;
+	}
+
+	@RequestMapping(value = "/index")
+	public String indexPage(Model model) {
+		List<Product> products = pService.getAllProducts();
+		model.addAttribute("products", products);
+		return "index";
+	}
+
+	@RequestMapping(value = "/productProfile")
+	public String productProfile(Model model,
+			@RequestParam(value = "id") Integer id) {
+		model.addAttribute("product", pService.getProductById(id));
+		return "productProfile";
 	}
 }

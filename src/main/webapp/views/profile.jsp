@@ -20,7 +20,7 @@
 		<h1>${user.name}`s profile</h1>
 	</div>
 	<jstl:if test="${user.photoUrl != null}">
-		<img src="${user.photoUrl}" height="150" width="150">
+		<img src="${user.photoUrl}" height="150">
 	</jstl:if>
 	
 	

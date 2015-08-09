@@ -22,7 +22,7 @@
 		<div class="col-md-1"></div>
 		<div class="col-md-10">
 			<div>
-				<h3>Category</h3><small><a href="newCategory">add new category</a></small>
+				<h3>Category</h3>
 			</div>
 
 			<table class="table table-striped">
@@ -39,15 +39,19 @@
 							<td>${productCategory.id}</td>
 							<td>${productCategory.name}</td>
 							<td>
-							<form action="removeCategory">
-							<button type="submit" class="btn btn-danger" name="id"
-									value="${productCategory.id}">remove</button>
-						</form>
+								<form action="removeCategory">
+									<button type="submit" class="btn btn-danger" name="id"
+										value="${productCategory.id}">remove</button>
+								</form>
 							</td>
 						</tr>
 					</jstl:forEach>
 				</tbody>
 			</table>
+			<form action="newCategory">
+				<button type="submit" class="btn btn-warning">Add category</button>
+			</form>
+			<br>
 		</div>
 		<div class="col-md-1"></div>
 	</div>

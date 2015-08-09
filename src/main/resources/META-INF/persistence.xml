@@ -8,7 +8,7 @@
 		<class>ua.lviv.melesh.domain.UserOrder</class>
 		<properties>
 			<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
-			<property name="hibernate.connection.url" value="jdbc:mysql://localhost/logos" />
+			<property name="hibernate.connection.url" value="jdbc:mysql://localhost/storedb" />
 			<property name="hibernate.connection.username" value="root" />
 			<property name="hibernate.connection.password" value="78561245" />
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
