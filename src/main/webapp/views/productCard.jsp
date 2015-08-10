@@ -19,15 +19,11 @@
 <title>Card</title>
 </head>
 <body>
-
 	<div class="row">
 		<div class="col-md-1"></div>
-
 		<div class="col-md-10">
-
 			<h3>${product.name}-card</h3>
 			<small><a href="products">back to product list</a></small>
-
 			<table class="table table-striped">
 				<tbody>
 					<tr>

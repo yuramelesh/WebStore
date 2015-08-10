@@ -32,6 +32,9 @@ public class Product {
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "user")
 	private List<UserOrder> userOrder;
+	
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "product")
+	private List<Photo> productPhoto;
 
 	public Product() {
 		super();

@@ -57,15 +57,18 @@
 					<sec:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_USER')">
 						<a href="logout"><button type="button" class="btn btn-default">logout</button></a>
 					</sec:authorize>
-
 				</div>
-
 			</div>
-			<sec:authorize access="hasRole('ROLE_ADMIN')"><p>
-				<a href="addProduct">addProduct</a><a href="products">products</a><a
-					href="userList">userList</a><a href="category">category</a>
-			</p></sec:authorize>
-
+		</div>
+		<div class="btn-group" role="toolbar">
+			<a class="btn btn-default" href="products" role="button">Product
+				list</a> <a class="btn btn-default" href="userList" role="button">User
+				list</a>
+			<sec:authorize access="hasRole('ROLE_ADMIN')">
+				<a class="btn btn-default" href="category" role="button">Category</a>
+				<a class="btn btn-default" href="addProduct" role="button">Add
+					product</a>
+			</sec:authorize>
 		</div>
 	</div>
 </body>

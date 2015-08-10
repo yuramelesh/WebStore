@@ -17,15 +17,11 @@
 <title>List of users</title>
 </head>
 <body>
-
 	<div class="row">
 		<div class="col-md-1"></div>
-
 		<div class="col-md-10">
-
 			<h3>Edit ${user.name}`s profile</h3>
 			<small><a href="userList">back to user list</a></small>
-
 			<table class="table table-striped">
 				<tbody>
 					<tr>

@@ -18,19 +18,8 @@ public class HomeController {
 
 	@RequestMapping(value = "/welcome")
 	public String getAllProducts(Model model) {
-		List<Product> products = pService.getAllProducts();
-		Product product1 = products.get(1);
-		model.addAttribute("product1", product1);
-		Product product2 = products.get(2);
-		model.addAttribute("product2", product2);
-		Product product3 = products.get(3);
-		model.addAttribute("product3", product3);
-		Product product4 = products.get(4);
-		model.addAttribute("product4", product4);
-		Product product5 = products.get(5);
-		model.addAttribute("product5", product5);
-		Product product6 = products.get(6);
-		model.addAttribute("product6", product6);
+		List<Product> products = (pService.getAllProducts()).subList(0, 5);
+		model.addAttribute("products", products);
 		return "welcome";
 	}
 
