@@ -58,10 +58,28 @@
 									<jstl:forEach items="${productCategory}" var="category">
 										<option>${category.name}</option>
 									</jstl:forEach>
-								</select><br>
+								</select>
 								<td><button type="submit" class="btn btn-warning" name="id"
 										value="${product.id}">change</button></td>
 							</form></td>
+					</tr>
+					<tr>
+						<td>Main photo</td>
+						<td>New photo url</td>
+						<form action="newProductPhoto">
+							<td><input type="text" class="form-control" name="newPhoto"></td>
+							<td><button type="submit" class="btn btn-warning" name="id"
+									value="${product.id}">change</button></td>
+						</form>
+					</tr>
+					<tr>
+						<td>Photo album</td>
+						<td></td>
+						<form action="photo">
+							<td></td>
+							<td><button type="submit" class="btn btn-warning" name="id"
+									value="${product.id}">add photos</button></td>
+						</form>
 					</tr>
 				</tbody>
 			</table>

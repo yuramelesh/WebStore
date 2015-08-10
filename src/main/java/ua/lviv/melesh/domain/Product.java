@@ -14,8 +14,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
 @Entity
-@NamedQueries({
-		@NamedQuery(name = "Product.findById", query = "select p from Product p where p.id=:id"),
+@NamedQueries({ @NamedQuery(name = "Product.findById", query = "select p from Product p where p.id=:id"),
 		@NamedQuery(name = "Product.findByName", query = "select p from Product p where p.name=:name") })
 public class Product {
 	@Id
@@ -32,9 +31,9 @@ public class Product {
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "user")
 	private List<UserOrder> userOrder;
-	
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "product")
-	private List<Photo> productPhoto;
+
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "user")
+	private List<UserOrder> photos;
 
 	public Product() {
 		super();

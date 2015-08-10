@@ -69,5 +69,10 @@
 		<put-attribute name="title" value="profile"></put-attribute>
 		<put-attribute name="body" value="/views/cart.jsp"></put-attribute>
 	</definition>
+	
+	<definition name="photo" extends="base">
+		<put-attribute name="title" value="profile"></put-attribute>
+		<put-attribute name="body" value="/views/photo.jsp"></put-attribute>
+	</definition>
 
 </tiles-definitions>
