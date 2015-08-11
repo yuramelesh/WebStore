@@ -20,7 +20,7 @@
 			<div class="col-md-2">
 				<div style="margin-left: 20px;">
 					<h1>
-						WEB<small> <a href="index.jsp">store</a></small>
+						WEB<small> <a href="welcome">store</a></small>
 					</h1>
 				</div>
 			</div>

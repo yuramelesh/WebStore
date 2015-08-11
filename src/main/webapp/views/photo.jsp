@@ -27,7 +27,7 @@
 			<div>
 				<form action="addPhoto?id=${product.id}">
 										<button type="submit" class="btn btn-warning" name="id"
-											value="${id}">Add photo</button>
+											value="">Add photo</button>
 									</form>
 			</div>
 

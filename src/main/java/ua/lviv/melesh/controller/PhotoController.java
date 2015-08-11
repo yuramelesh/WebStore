@@ -1,7 +1,5 @@
 package ua.lviv.melesh.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,8 +20,8 @@ public class PhotoController {
 
 	@RequestMapping(value = "/photo")
 	public String photo(Model model, @RequestParam(value = "id") Integer productId) {
-		List<Photos> photos = pService.getByProductId(productId);
-		model.addAttribute("photos", photos);
+
+		model.addAttribute("photos", pService.getByProductId(productId));
 		model.addAttribute("id", productId);
 		return "photo";
 	}

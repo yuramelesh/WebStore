@@ -23,7 +23,6 @@ public class CustomSecurityProvider implements AuthenticationProvider {
 
 	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
 
-		System.out.println("Authenticate");
 		String username = authentication.getName();
 		String password = (String) authentication.getCredentials();
 
@@ -31,18 +30,18 @@ public class CustomSecurityProvider implements AuthenticationProvider {
 
 		User dbUser = uService.getUserByName(username);
 
-		if (username.equals(dbUser.getName()) && password == dbUser.getPassword()) {
-			if (dbUser.getRole() == "ROLE_ADMIN") {
+		if (username.equals(dbUser.getName()) && password.equals(dbUser.getPassword())) {
+
+			if (dbUser.getRole().equals("ROLE_ADMIN")) {
 				authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
 			} else {
-				System.out.println("else1");
 				authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
 			}
 
 		} else {
-			System.out.println("else");
 			return null;
 		}
+
 		return new UsernamePasswordAuthenticationToken(username, password, authorities);
 	}
 
