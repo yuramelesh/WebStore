@@ -25,27 +25,33 @@
 				<h3>Photo album</h3>
 			</div>
 			<div>
-				<form action="addPhoto?id=${product.id}">
-										<button type="submit" class="btn btn-warning" name="id"
-											value="">Add photo</button>
-									</form>
+				<form action="addPhoto">
+					<button type="submit" class="btn btn-warning" name="id"
+						value="${product.id}">Add photo</button>
+				</form>
+			</div>
+			<div>
+				<a href="productCard?id=${product.id}">back to product card</a>
 			</div>
 
 			<table class="table table-striped">
 				<thead>
 					<tr>
-						<th>photo</th>
-						<th>Name</th>
-						<th>E-mail</th>
-						
+						<th>#</th>
+						<th></th>
+						<th></th>
+
 					</tr>
 				</thead>
 				<tbody>
 					<jstl:forEach items="${photos}" var="photo">
 						<tr>
 							<td>${photo.id}</td>
-							<td>${photo.url}</td>
-							
+							<td><img height="75" src="${photo.url}" /></td>
+							<td><form action="removePhoto">
+									<button type="submit" class="btn btn-danger" name="id"
+										value="${photo.id}">remove</button>
+								</form></td>
 						</tr>
 					</jstl:forEach>
 				</tbody>

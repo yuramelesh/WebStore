@@ -20,8 +20,9 @@ public class PhotoController {
 
 	@RequestMapping(value = "/photo")
 	public String photo(Model model, @RequestParam(value = "id") Integer productId) {
-		// model.addAttribute("photos", pService.getByProductId(productId));
-		// model.addAttribute("id", productId);
+		model.addAttribute("product", prService.getProductById(productId));
+		model.addAttribute("photos", pService.getByProductId(productId));
+		model.addAttribute("id", productId);
 		return "photo";
 	}
 
@@ -34,8 +35,6 @@ public class PhotoController {
 
 	@RequestMapping(value = "/addingPhoto")
 	public String addPhoto(Model model, @RequestParam(value = "id") Integer productId, @RequestParam(value = "photoUrl") String url) {
-		model.addAttribute("photos", pService.getByProductId(productId));
-		model.addAttribute("product", prService.getProductById(productId));
 		Photos photos = new Photos();
 		photos.setProduct(prService.getProductById(productId));
 		photos.setUrl(url);
@@ -43,4 +42,11 @@ public class PhotoController {
 		return "redirect:/photo?id=" + productId;
 	}
 
+	@RequestMapping(value = "/removePhoto")
+	public String removingPhoto(Model model, @RequestParam(value = "id") Integer Id) {
+		Photos photos = pService.getPhotoById(Id);
+		System.out.println(photos);
+		pService.deletePhotos(photos);
+		return "redirect:/photo";
+	}
 }

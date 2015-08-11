@@ -8,7 +8,7 @@ public interface PhotosService {
 
 	void insertPhotos(Photos photos);
 
-	void deleteProduct(Photos photos);
+	void deletePhotos(Photos photos);
 
 	List<Photos> getByProductId(Integer id);
 

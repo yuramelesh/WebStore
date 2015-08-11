@@ -60,4 +60,9 @@ public class Photos {
 		this.product = product;
 	}
 
+	@Override
+	public String toString() {
+		return "Photos [id=" + id + ", url=" + url + "]";
+	}
+
 }

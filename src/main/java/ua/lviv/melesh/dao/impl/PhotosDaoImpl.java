@@ -15,7 +15,8 @@ public class PhotosDaoImpl extends BaseDaoImpl<Photos> implements PhotosDao {
 	@SuppressWarnings("unchecked")
 	@Transactional
 	public List<Photos> getByProductId(Integer productId) {
-		return getEm().createNamedQuery("Photos.findByProductId").setParameter("product_id", productId).getResultList();
+		return getEm().createNamedQuery("Photos.findByProductId")
+				.setParameter("product_id", getEm().createNamedQuery("Product.findById").setParameter("id", productId).getSingleResult()).getResultList();
 	}
 
 	@Transactional

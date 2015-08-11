@@ -20,7 +20,7 @@ public class PhotosServiceImpl implements PhotosService {
 
 	}
 
-	public void deleteProduct(Photos photos) {
+	public void deletePhotos(Photos photos) {
 		dao.delete(photos);
 
 	}
