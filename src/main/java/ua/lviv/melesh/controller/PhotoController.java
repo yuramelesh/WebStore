@@ -20,9 +20,8 @@ public class PhotoController {
 
 	@RequestMapping(value = "/photo")
 	public String photo(Model model, @RequestParam(value = "id") Integer productId) {
-
-		model.addAttribute("photos", pService.getByProductId(productId));
-		model.addAttribute("id", productId);
+		// model.addAttribute("photos", pService.getByProductId(productId));
+		// model.addAttribute("id", productId);
 		return "photo";
 	}
 
