@@ -14,8 +14,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
 @Entity
-@NamedQueries({
-		@NamedQuery(name = "User.findById", query = "select p from User p where p.id=:id"),
+@NamedQueries({ @NamedQuery(name = "User.findById", query = "select p from User p where p.id=:id"),
 		@NamedQuery(name = "User.findByName", query = "select p from User p where p.name=:name") })
 public class User {
 	@Id
@@ -105,8 +104,12 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", password=" + password
-				+ ", email=" + email + "]";
+		return "User [id=" + id + ", name=" + name + ", password=" + password + ", email=" + email + "]";
+	}
+
+	public Object getAuthorities() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

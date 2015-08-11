@@ -15,44 +15,16 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script
 	src='<jstl:url value="/resources/bootstrap-3.3.5-dist/js/bootstrap.min.js" />'></script>
-<title>photo</title>
+<title>Add photo</title>
 </head>
 <body>
-	<div class="row">
-		<div class="col-md-1"></div>
-		<div class="col-md-10">
-			<div>
-				<h3>Photo album</h3>
-			</div>
-			<div>
-				<form action="addPhoto?id=${product.id}">
-										<button type="submit" class="btn btn-warning" name="id"
-											value="${id}">Add photo</button>
-									</form>
-			</div>
-
-			<table class="table table-striped">
-				<thead>
-					<tr>
-						<th>photo</th>
-						<th>Name</th>
-						<th>E-mail</th>
-						
-					</tr>
-				</thead>
-				<tbody>
-					<jstl:forEach items="${photos}" var="photo">
-						<tr>
-							<td>${photo.id}</td>
-							<td>${photo.url}</td>
-							
-						</tr>
-					</jstl:forEach>
-				</tbody>
-			</table>
-		</div>
-		<div class="col-md-1"></div>
+	<div>
+		<form action="addingPhoto" class="form-group">
+		Photo url<input type="text" class="form-control" name="photoUrl">
+		<br>
+			<button type="submit" class="btn btn-warning" name="id"
+				value="${id}">add</button>
+		</form>
 	</div>
-
 </body>
 </html>

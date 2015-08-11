@@ -66,13 +66,18 @@
 	</definition>
 	
 	<definition name="cart" extends="base">
-		<put-attribute name="title" value="profile"></put-attribute>
+		<put-attribute name="title" value="cart"></put-attribute>
 		<put-attribute name="body" value="/views/cart.jsp"></put-attribute>
 	</definition>
 	
 	<definition name="photo" extends="base">
-		<put-attribute name="title" value="profile"></put-attribute>
+		<put-attribute name="title" value="Photo"></put-attribute>
 		<put-attribute name="body" value="/views/photo.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="addPhoto" extends="base">
+		<put-attribute name="title" value="Add photo"></put-attribute>
+		<put-attribute name="body" value="/views/addPhoto.jsp"></put-attribute>
 	</definition>
 
 </tiles-definitions>

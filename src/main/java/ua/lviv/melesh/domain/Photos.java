@@ -14,7 +14,7 @@ import javax.persistence.NamedQuery;
 
 @Entity
 @NamedQueries({ @NamedQuery(name = "Photos.findById", query = "select p from Photos p where p.id=:id"),
-		@NamedQuery(name = "Photos.findByProductId", query = "select p from Photos p where p.id=:product_id") })
+		@NamedQuery(name = "Photos.findByProductId", query = "select p from Photos p where p.product=:product_id") })
 public class Photos {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

@@ -25,7 +25,7 @@ public class UserServiceImpl implements UserService {
 		return dao.findAll();
 	}
 
-	public List<User> getUserByName(String name) {
+	public User getUserByName(String name) {
 		return dao.getByName(name);
 	}
 

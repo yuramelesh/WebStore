@@ -5,22 +5,26 @@
                     http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
                     http://www.springframework.org/schema/security 
                     http://www.springframework.org/schema/security/spring-security-3.2.xsd">
+
+	<!-- <context:component-scan base-package="ua.lviv.melesh.*" /> -->
+
 	<http use-expressions="true">
 
-		<form-login login-page="/login.jsp" default-target-url="/welcome"
-			authentication-failure-url="/login.jsp" username-parameter="username"
-			password-parameter="password" />
+		<form-login 
+		login-page="/login.jsp"
+		default-target-url="/welcome"
+		authentication-failure-url="/login.jsp"
+		username-parameter="username"
+		password-parameter="password" />
 		<logout logout-url="/logout" logout-success-url="/welcome" />
 		<anonymous username="guest" granted-authority="ROLE_ANONYMOUS" />
 	</http>
+	
+	<beans:bean id="customAuthenticationProvider"
+		class="ua.lviv.melesh.security.CustomSecurityProvider"></beans:bean>
 
 	<authentication-manager>
-		<authentication-provider>
-			<user-service>
-				<user name="admin" password="admin" authorities="ROLE_ADMIN" />
-				<user name="user" password="user" authorities="ROLE_USER" />
-			</user-service>
-		</authentication-provider>
+		<authentication-provider ref="customAuthenticationProvider" />
 	</authentication-manager>
 </beans:beans> 
                

@@ -14,13 +14,13 @@ public class PhotosDaoImpl extends BaseDaoImpl<Photos> implements PhotosDao {
 
 	@SuppressWarnings("unchecked")
 	@Transactional
-	public List<Photos> getByProductId(Integer id) {
-		return getEm().createNamedQuery("Photos.findByProductId").setParameter("id", id).getResultList();
+	public List<Photos> getByProductId(Integer productId) {
+		return getEm().createNamedQuery("Photos.findByProductId").setParameter("product_id", productId).getResultList();
 	}
 
 	@Transactional
 	public Photos getById(Integer id) {
-		return (Photos) getEm().createNamedQuery("Product.findById").setParameter("id", id).getSingleResult();
+		return (Photos) getEm().createNamedQuery("Photos.findById").setParameter("id", id).getSingleResult();
 	}
 
 }
