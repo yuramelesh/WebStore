@@ -25,10 +25,8 @@ public class HomeController {
 		List<ProductCategory> productCategory = pcService
 				.getAllProductCategory();
 		model.addAttribute("productCategory", productCategory);
-		List<Product> products = (pService.getAllProducts()).subList(0, 4);
+		List<Product> products = (pService.getAllProducts()).subList(0, 12);
 		model.addAttribute("products", products);
-		List<Product> products2 = (pService.getAllProducts()).subList(5, 10);
-		model.addAttribute("products2", products2);
 		return "welcome";
 	}
 

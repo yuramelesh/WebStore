@@ -15,10 +15,14 @@
 			password-parameter="password" />
 		<logout logout-url="/logout" logout-success-url="/welcome" />
 		<anonymous username="guest" granted-authority="ROLE_ANONYMOUS" />
+
 	</http>
 
 	<authentication-manager>
-		<authentication-provider ref="customAuthenticationProvider" />
+		<authentication-provider ref="customAuthenticationProvider">
+			<!-- <password-encoder hash="md5" /> -->
+		</authentication-provider>
 	</authentication-manager>
+
 </beans:beans> 
                

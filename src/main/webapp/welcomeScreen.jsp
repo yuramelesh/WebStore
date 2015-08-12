@@ -36,8 +36,9 @@
 				</div>
 			</form>
 		</div>
+		<div class="col-md-9">
 		<jstl:forEach items="${products}" var="product">
-			<div class="col-md-2">
+			<div class="col-md-3">
 				<table class="table table-striped">
 					<tr>
 						<td><a href="productProfile?id=${product.id}">${product.name}</a></td>
@@ -59,7 +60,9 @@
 				</table>
 			</div>
 		</jstl:forEach>
+		</div>
+		<div class="col-md-1">
+		</div>
 	</div>
-
 </body>
 </html>

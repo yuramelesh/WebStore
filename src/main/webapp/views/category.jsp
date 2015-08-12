@@ -20,7 +20,7 @@
 
 	<div class="row">
 		<div class="col-md-1"></div>
-		<div class="col-md-10">
+		<div class="col-md-4">
 			<div>
 				<h3>Category</h3>
 			</div>
@@ -28,15 +28,13 @@
 			<table class="table table-striped">
 				<thead>
 					<tr>
-						<th>id</th>
 						<th>Name</th>
-						<th>#</th>
+						<th></th>
 					</tr>
 				</thead>
 				<tbody>
 					<jstl:forEach items="${productCategory}" var="productCategory">
 						<tr>
-							<td>${productCategory.id}</td>
 							<td>${productCategory.name}</td>
 							<td>
 								<form action="removeCategory">
