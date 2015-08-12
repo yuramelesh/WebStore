@@ -18,13 +18,20 @@
 <title>Add photo</title>
 </head>
 <body>
-	<div>
-		<form action="addingPhoto" class="form-group">
-		Photo url<input type="text" class="form-control" name="photoUrl">
-		<br>
-			<button type="submit" class="btn btn-warning" name="id"
-				value="${id}">add</button>
-		</form>
+	<div class="row">
+		<div class="col-md-1"></div>
+		<div class="col-md-4">
+			<div>
+
+				<form action="addingPhoto" class="form-group">
+					Photo url<input type="text" class="form-control" name="photoUrl">
+					<br>
+					<button type="submit" class="btn btn-warning" name="id"
+						value="${id}">add</button>
+				</form>
+			</div>
+		</div>
 	</div>
+
 </body>
 </html>

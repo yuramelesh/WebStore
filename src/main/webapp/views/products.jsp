@@ -48,7 +48,7 @@
 								<td><jstl:if test="${product.photo != null}">
 										<img height="100" src="${product.photo}" />
 									</jstl:if></td>
-								<td>${product.name}</td>
+								<td><a href="productProfile?id=${product.id}">${product.name}</a></td>
 								<td>${product.category}</td>
 								<td>${product.price}</td>
 								<sec:authorize access="hasRole('ROLE_ADMIN')">

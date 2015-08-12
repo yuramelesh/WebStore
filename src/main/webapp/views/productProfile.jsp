@@ -16,20 +16,25 @@
 	src='<jstl:url value="/resources/bootstrap-3.3.5-dist/js/bootstrap.min.js" />'></script>
 </head>
 <body>
-	<div>
-		<h1>${product.name}</h1>
+	<div class="row">
+		<div class="col-md-1"></div>
+		<div class="col-md-10">
+			<div>
+				<h3>${product.name}</h3>
+				<jstl:if test="${product.photo != null}">
+					<img src="${product.photo}" height="150">
+				</jstl:if>
+				<table class="table table-striped">
+					<tr>
+						<td>${product.name}</td>
+					</tr>
+					<tr>
+						<td>${product.price}$</td>
+					</tr>
+				</table>
+			</div>
+		</div>
 	</div>
-	<jstl:if test="${product.photo != null}">
-		<img src="${product.photo}" height="150">
-	</jstl:if>
-	<table class="table table-striped">
-				<tr>
-					<td>${product.name}</td>
-				</tr>
-				<tr>
-					<td>${product.price}$</td>
-				</tr>
-			</table>
-	
+
 </body>
 </html>

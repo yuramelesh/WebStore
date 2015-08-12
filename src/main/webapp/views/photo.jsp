@@ -4,6 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="jstl"%>
 <%@ page import="java.util.List"%>
 <%@ page import="ua.lviv.melesh.domain.Photos"%>
+<%@ page import="ua.lviv.melesh.domain.Product"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -37,7 +38,6 @@
 			<table class="table table-striped">
 				<thead>
 					<tr>
-						<th>#</th>
 						<th></th>
 						<th></th>
 
@@ -46,12 +46,14 @@
 				<tbody>
 					<jstl:forEach items="${photos}" var="photo">
 						<tr>
-							<td>${photo.id}</td>
 							<td><img height="75" src="${photo.url}" /></td>
-							<td><form action="removePhoto">
+							<td>
+								<form action="removePhoto">
+									<input type="hidden" name="productId" value="${product.id}">
 									<button type="submit" class="btn btn-danger" name="id"
 										value="${photo.id}">remove</button>
-								</form></td>
+								</form>
+							</td>
 						</tr>
 					</jstl:forEach>
 				</tbody>
