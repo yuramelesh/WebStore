@@ -37,4 +37,8 @@ public class ProductServiceImpl implements ProductService {
 		dao.delete(product);
 	}
 
+	public List<Product> getProductByCategory(String category) {
+		return dao.getByCategory(category);
+	}
+
 }

@@ -10,4 +10,6 @@ public interface ProductDao extends BaseDao<Product> {
 
 	List<Product> getByName(String name);
 
+	List<Product> getByCategory(String category);
+
 }

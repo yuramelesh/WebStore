@@ -9,17 +9,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import ua.lviv.melesh.domain.Product;
+import ua.lviv.melesh.domain.ProductCategory;
+import ua.lviv.melesh.service.ProductCategoryService;
 import ua.lviv.melesh.service.ProductService;
 
 @Controller
 public class HomeController {
 	@Autowired
 	private ProductService pService;
+	@Autowired
+	private ProductCategoryService pcService;
 
 	@RequestMapping(value = "/welcome")
 	public String getAllProducts(Model model) {
-		List<Product> products = (pService.getAllProducts()).subList(0, 5);
+		List<ProductCategory> productCategory = pcService
+				.getAllProductCategory();
+		model.addAttribute("productCategory", productCategory);
+		List<Product> products = (pService.getAllProducts()).subList(0, 4);
 		model.addAttribute("products", products);
+		List<Product> products2 = (pService.getAllProducts()).subList(5, 10);
+		model.addAttribute("products2", products2);
 		return "welcome";
 	}
 

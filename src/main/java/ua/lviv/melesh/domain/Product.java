@@ -14,8 +14,10 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
 @Entity
-@NamedQueries({ @NamedQuery(name = "Product.findById", query = "select p from Product p where p.id=:id"),
-		@NamedQuery(name = "Product.findByName", query = "select p from Product p where p.name=:name") })
+@NamedQueries({
+		@NamedQuery(name = "Product.findById", query = "select p from Product p where p.id=:id"),
+		@NamedQuery(name = "Product.findByName", query = "select p from Product p where p.name=:name"),
+		@NamedQuery(name = "Product.findByCategory", query = "select p from Product p where p.category=:category") })
 public class Product {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

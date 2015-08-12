@@ -26,12 +26,12 @@
 					<!-- Wrapper for slides -->
 					<div class="carousel-inner" role="listbox">
 						<div class="item active">
-							<img src="${product.photo}" style="height: 300px;">
+							<img src="${product.photo}" style="max-height: 300px;">
 							<div class="carousel-caption"></div>
 						</div>
 						<jstl:forEach items="${photos}" var="photo">
 							<div class="item">
-								<img src="${photo.url}" style="height: 300px;">
+								<img src="${photo.url}" style="max-height: 300px;">
 								<div class="carousel-caption"></div>
 							</div>
 						</jstl:forEach>

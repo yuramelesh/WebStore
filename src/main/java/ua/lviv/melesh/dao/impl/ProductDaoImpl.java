@@ -25,4 +25,11 @@ public class ProductDaoImpl extends BaseDaoImpl<Product> implements ProductDao {
 				.setParameter("id", id).getSingleResult();
 	}
 
+	@SuppressWarnings("unchecked")
+	@Transactional
+	public List<Product> getByCategory(String category) {
+		return getEm().createNamedQuery("Product.findByCategory")
+				.setParameter("category", category).getResultList();
+	}
+
 }

@@ -60,7 +60,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="btn-group" role="toolbar">
+		<div class="btn-group" role="toolbar" style="margin-left: 20px;">
 			<a class="btn btn-default" href="products" role="button">Product
 				list</a> <a class="btn btn-default" href="userList" role="button">User
 				list</a>

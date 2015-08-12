@@ -79,5 +79,10 @@
 		<put-attribute name="title" value="Add photo"></put-attribute>
 		<put-attribute name="body" value="/views/addPhoto.jsp"></put-attribute>
 	</definition>
+	
+	<definition name="search" extends="base">
+		<put-attribute name="title" value="Search"></put-attribute>
+		<put-attribute name="body" value="/views/searching.jsp"></put-attribute>
+	</definition>
 
 </tiles-definitions>

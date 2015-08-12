@@ -20,46 +20,37 @@
 	src='<jstl:url value="/resources/bootstrap-3.3.5-dist/js/bootstrap.min.js" />'></script>
 </head>
 <body>
-	<div class="row">
-		<div class="col-md-2">
-			<form action="search">
-				<div style="margin-left: 20px;" class="btn-group-vertical"
-					role="group">
-
-					<jstl:forEach items="${productCategory}" var="productCategory">
-
-						<button type="submit" class="btn btn-default" name="category"
-							value="${productCategory.name}">${productCategory.name}</button>
-
-					</jstl:forEach>
-
-				</div>
-			</form>
-		</div>
-		<jstl:forEach items="${products}" var="product">
-			<div class="col-md-2">
+<div class="row">
+		<div class="col-md-1"></div>
+		<div class="col-md-10">
+			<div>
+				<h3>${product.category} list</h3>
+				
 				<table class="table table-striped">
-					<tr>
-						<td><a href="productProfile?id=${product.id}">${product.name}</a></td>
-					</tr>
-					<tr>
-						<td><img height="100" src="${product.photo}"></td>
-					</tr>
-					<tr>
-						<td>${product.price}$</td>
-					</tr>
-					<tr>
-						<td><sec:authorize access="hasRole('ROLE_USER')">
-								<form action="toCart">
-									<button type="submit" class="btn btn-warning" name="id"
-										value="${product.id}">Add to cart</button>
-								</form>
-							</sec:authorize></td>
-					</tr>
+					<thead>
+						<tr>
+							<th></th>
+							<th>Name</th>
+							<th>Category</th>
+							<th>Price</th>
+						</tr>
+					</thead>
+					<tbody>
+						<jstl:forEach items="${products}" var="product">
+							<tr>
+								<td><jstl:if test="${product.photo != null}">
+										<img height="100" src="${product.photo}" />
+									</jstl:if></td>
+								<td><a href="productProfile?id=${product.id}">${product.name}</a></td>
+								<td>${product.category}</td>
+								<td>${product.price}</td>
+								
+							</tr>
+						</jstl:forEach>
+					</tbody>
 				</table>
 			</div>
-		</jstl:forEach>
+		</div>
 	</div>
-
 </body>
 </html>

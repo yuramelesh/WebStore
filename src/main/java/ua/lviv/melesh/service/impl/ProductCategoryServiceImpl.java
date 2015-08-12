@@ -29,7 +29,7 @@ public class ProductCategoryServiceImpl implements ProductCategoryService {
 		return dao.findAll();
 	}
 
-	public List<ProductCategory> getProductCategoryByName(String name) {
+	public ProductCategory getProductCategoryByName(String name) {
 		return dao.getByName(name);
 	}
 
