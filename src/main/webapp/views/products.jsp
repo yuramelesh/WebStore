@@ -49,7 +49,7 @@
 										<img height="100" src="${product.photo}" />
 									</jstl:if></td>
 								<td><a href="productProfile?id=${product.id}">${product.name}</a></td>
-								<td>${product.category}</td>
+								<td><a href="search?category=${product.category}">${product.category}</a></td>
 								<td>${product.price}</td>
 								<sec:authorize access="hasRole('ROLE_ADMIN')">
 									<td><form action="productCard?id=${product.id}">

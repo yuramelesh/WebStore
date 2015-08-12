@@ -26,7 +26,7 @@ public class SearchController {
 	public String getAllProducts(Model model,
 			@RequestParam(value = "category") String category) {
 		List<Product> products = pService.getProductByCategory(category);
-		model.addAttribute(products);
+		model.addAttribute("products", products);
 		return "search";
 	}
 }

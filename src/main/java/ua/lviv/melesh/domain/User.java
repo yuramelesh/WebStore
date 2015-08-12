@@ -14,7 +14,8 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
 @Entity
-@NamedQueries({ @NamedQuery(name = "User.findById", query = "select p from User p where p.id=:id"),
+@NamedQueries({
+		@NamedQuery(name = "User.findById", query = "select p from User p where p.id=:id"),
 		@NamedQuery(name = "User.findByName", query = "select p from User p where p.name=:name") })
 public class User {
 	@Id
@@ -30,6 +31,8 @@ public class User {
 	private String photoUrl;
 	@Column
 	private String role;
+	@Column
+	private boolean active;
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "user")
 	private List<UserOrder> userOrder;
@@ -44,6 +47,7 @@ public class User {
 		this.email = email;
 		this.password = password;
 		this.role = "ROLE_USER";
+		this.active = true;
 	}
 
 	public int getId() {
@@ -102,9 +106,18 @@ public class User {
 		this.role = role;
 	}
 
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", password=" + password + ", email=" + email + "]";
+		return "User [id=" + id + ", name=" + name + ", password=" + password
+				+ ", email=" + email + "]";
 	}
 
 	public Object getAuthorities() {

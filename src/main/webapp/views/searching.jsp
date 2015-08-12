@@ -20,12 +20,12 @@
 	src='<jstl:url value="/resources/bootstrap-3.3.5-dist/js/bootstrap.min.js" />'></script>
 </head>
 <body>
-<div class="row">
+	<div class="row">
 		<div class="col-md-1"></div>
 		<div class="col-md-10">
 			<div>
-				<h3>${product.category} list</h3>
-				
+				<h3>${product.category}list</h3>
+
 				<table class="table table-striped">
 					<thead>
 						<tr>
@@ -38,13 +38,20 @@
 					<tbody>
 						<jstl:forEach items="${products}" var="product">
 							<tr>
-								<td><jstl:if test="${product.photo != null}">
-										<img height="100" src="${product.photo}" />
-									</jstl:if></td>
+								<td><img height="100" src="${product.photo}" /></td>
 								<td><a href="productProfile?id=${product.id}">${product.name}</a></td>
 								<td>${product.category}</td>
 								<td>${product.price}</td>
-								
+								<sec:authorize access="hasRole('ROLE_ADMIN')">
+									<td><form action="productCard?id=${product.id}">
+											<button type="submit" class="btn btn-warning" name="id"
+												value="${product.id}">edit</button>
+										</form></td>
+									<td><form action="removeProduct">
+											<button type="submit" class="btn btn-danger" name="id"
+												value="${product.id}">remove</button>
+										</form></td>
+								</sec:authorize>
 							</tr>
 						</jstl:forEach>
 					</tbody>
