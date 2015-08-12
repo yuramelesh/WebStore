@@ -32,10 +32,10 @@
 
 			<div class="col-md-4" style="margin-top: 20px;">
 				<div class="btn-group">
-
-					<input type="text" class="btn btn-default"></input>
-
-					<button type="button" class="btn btn-default">Search</button>
+					<form action="searching">
+						<input type="text" class="btn btn-default" name="name"></input>
+						<button type="submit" class="btn btn-default">Search</button>
+					</form>
 				</div>
 			</div>
 
@@ -61,13 +61,11 @@
 			</div>
 		</div>
 		<div class="btn-group" role="toolbar" style="margin-left: 20px;">
-			<a class="btn btn-default" href="products" role="button">Product
-				list</a> <a class="btn btn-default" href="userList" role="button">User
-				list</a>
+			<a class="btn btn-default" href="products" role="button">Products</a>
 			<sec:authorize access="hasRole('ROLE_ADMIN')">
+				<a class="btn btn-default" href="userList" role="button">User list</a>
 				<a class="btn btn-default" href="category" role="button">Category</a>
-				<a class="btn btn-default" href="addProduct" role="button">Add
-					product</a>
+				<a class="btn btn-default" href="addProduct" role="button">Add product</a>
 			</sec:authorize>
 		</div>
 	</div>

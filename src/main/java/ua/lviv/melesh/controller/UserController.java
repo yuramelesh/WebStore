@@ -2,7 +2,6 @@ package ua.lviv.melesh.controller;
 
 import java.util.List;
 
-import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,12 +30,16 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/userList", method = RequestMethod.POST)
-	public String creatingUser(Model model, @RequestParam(value = "name") String name, @RequestParam(value = "email") String email,
+	public String creatingUser(Model model,
+			@RequestParam(value = "name") String name,
+			@RequestParam(value = "email") String email,
 			@RequestParam(value = "password") String password) {
 		User user = new User();
 		user.setName(name);
 		user.setEmail(email);
-		user.setPassword(DigestUtils.md5Hex(password));
+		user.setRole("ROLE_USER");
+		user.setActive(true);
+		user.setPassword(password);
 		uService.insertUser(user);
 		return "redirect:/userList";
 	}
@@ -50,7 +53,9 @@ public class UserController {
 
 	// @Secured({"ROLE_ADMIN"})
 	@RequestMapping(value = "/editingName")
-	public String editingUserName(Model model, @RequestParam(value = "id") Integer id, @RequestParam(value = "newName") String name) {
+	public String editingUserName(Model model,
+			@RequestParam(value = "id") Integer id,
+			@RequestParam(value = "newName") String name) {
 		model.addAttribute("user", uService.getUserById(id));
 		User user = uService.getUserById(id);
 		user.setName(name);
@@ -59,7 +64,9 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/editingEmail")
-	public String editingUserEmail(Model model, @RequestParam(value = "id") Integer id, @RequestParam(value = "newEmail") String email) {
+	public String editingUserEmail(Model model,
+			@RequestParam(value = "id") Integer id,
+			@RequestParam(value = "newEmail") String email) {
 		model.addAttribute("user", uService.getUserById(id));
 		User user = uService.getUserById(id);
 		user.setEmail(email);
@@ -68,7 +75,9 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/newPhoto")
-	public String newUserPhoto(Model model, @RequestParam(value = "id") Integer id, @RequestParam(value = "newPhoto") String photoUrl) {
+	public String newUserPhoto(Model model,
+			@RequestParam(value = "id") Integer id,
+			@RequestParam(value = "newPhoto") String photoUrl) {
 		model.addAttribute("user", uService.getUserById(id));
 		User user = uService.getUserById(id);
 		user.setPhotoUrl(photoUrl);
@@ -77,11 +86,29 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/editingPassword")
-	public String editingUserPassword(Model model, @RequestParam(value = "id") Integer id, @RequestParam(value = "newPassword") String password) {
+	public String editingUserPassword(Model model,
+			@RequestParam(value = "id") Integer id,
+			@RequestParam(value = "newPassword") String password) {
 		model.addAttribute("user", uService.getUserById(id));
 		User user = uService.getUserById(id);
-		user.setPassword(DigestUtils.md5Hex(password));
+		user.setPassword(password);
 		uService.insertUser(user);
+		return "redirect:/editPage?id=" + id;
+	}
+
+	@RequestMapping(value = "/editingActivity")
+	public String editingUserActivity(Model model,
+			@RequestParam(value = "id") Integer id) {
+		model.addAttribute("user", uService.getUserById(id));
+		User user = uService.getUserById(id);
+		if (user.getActive() == true) {
+			user.setActive(false);
+			uService.insertUser(user);
+		} else {
+			user.setActive(true);
+			uService.insertUser(user);
+		}
+
 		return "redirect:/editPage?id=" + id;
 	}
 
@@ -93,7 +120,8 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/profile")
-	public String profilePage(Model model, @RequestParam(value = "id") Integer id) {
+	public String profilePage(Model model,
+			@RequestParam(value = "id") Integer id) {
 		model.addAttribute("user", uService.getUserById(id));
 		return "profile";
 	}

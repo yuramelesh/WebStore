@@ -73,6 +73,15 @@
 						</form>
 					</tr>
 					<tr>
+						<td>Description</td>
+						<td>${product.description}</td>
+						<form action="newProductDescription">
+							<td><input type="text" maxlength="224" class="form-control" name="newDescription"></td>
+							<td><button type="submit" class="btn btn-warning" name="id"
+									value="${product.id}">change</button></td>
+						</form>
+					</tr>
+					<tr>
 						<td>Photo album</td>
 						<td></td>
 						<form action="photo">

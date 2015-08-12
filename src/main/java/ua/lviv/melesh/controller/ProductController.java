@@ -84,6 +84,17 @@ public class ProductController {
 		return "redirect:/productCard?id=" + id;
 	}
 
+	@RequestMapping(value = "/newProductDescription")
+	public String newProductDescription(Model model,
+			@RequestParam(value = "newDescription") String description,
+			@RequestParam(value = "id") Integer id) {
+		model.addAttribute("product", pService.getProductById(id));
+		Product product = pService.getProductById(id);
+		product.setDescription(description);
+		pService.insertProduct(product);
+		return "redirect:/productCard?id=" + id;
+	}
+
 	@RequestMapping(value = "/newProductPhoto")
 	public String newProductPhoto(Model model,
 			@RequestParam(value = "newPhoto") String photoUrl,

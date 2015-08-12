@@ -55,10 +55,13 @@
 			<h3>${product.name}</h3>
 			<table class="table table-striped">
 				<tr>
-					<td>Product # ${product.id}</td>
+					<td>${product.category}</td>
 				</tr>
 				<tr>
-					<td>Price:${product.price}$</td>
+					<td>Price:${product.price} $</td>
+				</tr>
+				<tr>
+					<td>${product.description}</td>
 				</tr>
 			</table>
 		</div>

@@ -67,6 +67,20 @@
 									value="${user.id}">change</button></td>
 						</form>
 					</tr>
+					<tr>
+						<td>Status</td>
+						<td><jstl:if test="${user.active == true}">
+								<p>Active</p>
+							</jstl:if>
+							<jstl:if test="${user.active == false}">
+								<p>Non active</p>
+							</jstl:if></td>
+						<form action="editingActivity">
+							<td></td>
+							<td><button type="submit" class="btn btn-warning" name="id"
+									value="${user.id}">change</button></td>
+						</form>
+					</tr>
 				</tbody>
 			</table>
 		</div>

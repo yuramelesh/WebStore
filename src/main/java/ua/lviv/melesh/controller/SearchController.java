@@ -29,4 +29,12 @@ public class SearchController {
 		model.addAttribute("products", products);
 		return "search";
 	}
+
+	@RequestMapping(value = "/searching")
+	public String productSearch(Model model,
+			@RequestParam(value = "name") String name) {
+		List<Product> products = pService.getProductByName(name);
+		model.addAttribute("products", products);
+		return "search";
+	}
 }

@@ -24,8 +24,6 @@
 		<div class="col-md-1"></div>
 		<div class="col-md-10">
 			<div>
-				<h3>${product.category}list</h3>
-
 				<table class="table table-striped">
 					<thead>
 						<tr>
@@ -36,6 +34,9 @@
 						</tr>
 					</thead>
 					<tbody>
+					<jstl:if test="${products.isEmpty() == true}">
+					<h1>No results!</h1>
+					</jstl:if>
 						<jstl:forEach items="${products}" var="product">
 							<tr>
 								<td><img height="100" src="${product.photo}" /></td>
