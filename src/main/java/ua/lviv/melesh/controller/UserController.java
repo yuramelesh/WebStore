@@ -112,6 +112,21 @@ public class UserController {
 		return "redirect:/editPage?id=" + id;
 	}
 
+	@RequestMapping(value = "/editingRole")
+	public String editingUserRole(Model model,
+			@RequestParam(value = "id") Integer id) {
+		model.addAttribute("user", uService.getUserById(id));
+		User user = uService.getUserById(id);
+		if (user.getRole().equals("ROLE_USER")) {
+			user.setRole("ROLE_ADMIN");
+			uService.insertUser(user);
+		} else {
+			user.setRole("ROLE_USER");
+			uService.insertUser(user);
+		}
+		return "redirect:/editPage?id=" + id;
+	}
+
 	@RequestMapping(value = "/removeUser")
 	public String removeUser(Model model, @RequestParam(value = "id") Integer id) {
 		User user = uService.getUserById(id);

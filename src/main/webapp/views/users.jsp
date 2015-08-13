@@ -33,6 +33,7 @@
 						<th>Name</th>
 						<th>E-mail</th>
 						<sec:authorize access="hasRole('ROLE_ADMIN')">
+							<th>Role</th>
 							<th>Status</th>
 							<th>Password</th>
 						</sec:authorize>
@@ -44,6 +45,7 @@
 							<td>${user.id}</td>
 							<td><a href="profile?id=${user.id}">${user.name}</a></td>
 							<td>${user.email}</td>
+							<td>${user.role}</td>
 							<sec:authorize access="hasRole('ROLE_ADMIN')">
 								<td><jstl:if test="${user.active == true}">
 										<p>Active</p>

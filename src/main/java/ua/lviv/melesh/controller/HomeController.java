@@ -47,7 +47,11 @@ public class HomeController {
 
 	@RequestMapping(value = "/cart")
 	public String cart(Model model, HttpSession session) {
-		getSumm(model, session);
+		@SuppressWarnings("unchecked")
+		List<Product> cartItems = (List<Product>) session.getAttribute("cart");
+		if (cartItems != null) {
+			getSumm(model, session);
+		}
 		return "cart";
 	}
 

@@ -81,6 +81,15 @@
 									value="${user.id}">change</button></td>
 						</form>
 					</tr>
+					<tr>
+						<td>Role</td>
+						<td>${user.role}</td>
+						<form action="editingRole">
+							<td></td>
+							<td><button type="submit" class="btn btn-warning" name="id"
+									value="${user.id}">change</button></td>
+						</form>
+					</tr>
 				</tbody>
 			</table>
 		</div>

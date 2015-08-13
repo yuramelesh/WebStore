@@ -46,27 +46,33 @@
 				<div class="btn-group">
 
 					<sec:authorize access="hasRole('ROLE_ANONYMOUS')">
-						<a href="login"><button type="button"
-								class="btn btn-default">Log in</button></a>
+						<a href="login"><button type="button" class="btn btn-default">Log
+								in</button></a>
 						<a href="registration"><button type="submit"
 								class="btn btn-default">Sign up</button></a>
-					</sec:authorize>
-					<sec:authorize access="hasRole('ROLE_USER')">
-						<a href="cart">cart</a>
 					</sec:authorize>
 					<sec:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_USER')">
 						<a href="logout"><button type="button" class="btn btn-default">logout</button></a>
 					</sec:authorize>
+					<br> Hello <a href="profile?id="><sec:authentication
+							property="name" /></a> !
+
+
 				</div>
 			</div>
 		</div>
 		<div class="btn-group" role="toolbar" style="margin-left: 20px;">
-		<a class="btn btn-default" href="welcome" role="button">Home</a>
-			<a class="btn btn-default" href="products" role="button">Products</a>
+			<sec:authorize access="hasRole('ROLE_USER')">
+				<a class="btn btn-warning" href="cart" role="button">Cart</a>
+			</sec:authorize>
+			<a class="btn btn-default" href="welcome" role="button">Home</a> <a
+				class="btn btn-default" href="products" role="button">Products</a>
 			<sec:authorize access="hasRole('ROLE_ADMIN')">
-				<a class="btn btn-default" href="userList" role="button">User list</a>
+				<a class="btn btn-default" href="userList" role="button">User
+					list</a>
 				<a class="btn btn-default" href="category" role="button">Category</a>
-				<a class="btn btn-default" href="addProduct" role="button">Add product</a>
+				<a class="btn btn-default" href="addProduct" role="button">Add
+					product</a>
 			</sec:authorize>
 		</div>
 	</div>
