@@ -36,8 +36,8 @@ public class Product {
 	@OneToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER, mappedBy = "user")
 	private List<UserOrder> userOrder;
 
-	@OneToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER, mappedBy = "user")
-	private List<UserOrder> photos;
+	@OneToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER, mappedBy = "product")
+	private List<Photos> photos;
 
 	public Product() {
 		super();
@@ -91,4 +91,27 @@ public class Product {
 		this.description = description;
 	}
 
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", name=" + name + ", category="
+				+ category + ", price=" + price + ", photo=" + photo
+				+ ", description=" + description + ", userOrder=" + userOrder
+				+ ", photos=" + photos + "]";
+	}
+
+	public boolean equals(Object obj) {
+		if (obj == this)
+			return true;
+		if (obj == null)
+			return false;
+		if (!(getClass() == obj.getClass()))
+			return false;
+		else {
+			Product p = (Product) obj;
+			if (p.id == this.id)
+				return true;
+			else
+				return false;
+		}
+	}
 }

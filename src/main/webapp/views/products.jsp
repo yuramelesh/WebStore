@@ -51,6 +51,12 @@
 								<td><a href="productProfile?id=${product.id}">${product.name}</a></td>
 								<td><a href="search?category=${product.category}">${product.category}</a></td>
 								<td>${product.price}</td>
+								<td><sec:authorize access="hasRole('ROLE_USER')">
+									<form action="toCart" method="post"  >
+										<button type="submit" class="btn btn-warning" name="id"
+											value="${product.id}">Add to cart</button>
+									</form>
+								</sec:authorize></td>
 								<sec:authorize access="hasRole('ROLE_ADMIN')">
 									<td><form action="productCard?id=${product.id}">
 											<button type="submit" class="btn btn-warning" name="id"

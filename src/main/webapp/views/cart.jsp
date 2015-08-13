@@ -18,33 +18,48 @@
 	src='<jstl:url value="/resources/bootstrap-3.3.5-dist/js/bootstrap.min.js" />'></script>
 </head>
 <body>
+	<div class="row">
+		<div class="col-md-1"></div>
+		<div class="col-md-10">
+			<div>
+				<h3>Cart</h3>
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th></th>
+							<th>Name</th>
+							<th>Price</th>
+						</tr>
+					</thead>
+					<tbody>
+						<jstl:forEach items="${cart}" var="product">
+							<tr>
+								<td><jstl:if test="${product.photo != null}">
+										<img height="100" src="${product.photo}" />
+									</jstl:if></td>
+								<td><a href="productProfile?id=${product.id}">${product.name}</a></td>
 
+								<td>${product.price}</td>
 
-	<table class="table table-striped">
-		<thead>
-			<tr>
-				<th></th>
-				<th>Name</th>
-				<th>Category</th>
-				<th>Price</th>
-			</tr>
-		</thead>
-		<tbody>
-			
-				<tr>
-					<td><img height="75" src="${product.photo}" /></td>
-					<td>${product.name}</td>
-					<td>${product.category}</td>
-					<td>${product.price}</td>
-				</tr>
-		
-			<td></td>
-			<td></td>
-			<td>Total:</td>
-			<td></td>
-			<tr>
-			</tr>
-		</tbody>
-	</table>
+								<td><form action="removeFromCart">
+										<button type="submit" class="btn btn-danger" name="id"
+											value="${product.id}">remove</button>
+									</form></td>
+							</tr>
+						</jstl:forEach>
+						<tr>
+							<td></td>
+							<td>Total:</td>
+							<td>${total}$</td>
+							<td><form action="#">
+									<button type="submit" class="btn btn-warning">Order
+										now!</button>
+								</form></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

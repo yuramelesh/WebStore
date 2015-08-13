@@ -24,7 +24,7 @@
 			<div class="col-md-2">
 				<div style="margin-left: 20px;">
 					<h1>
-						WEB<small> <a href="welcome">store</a></small>
+						WEB<small> store</small>
 					</h1>
 				</div>
 			</div>
@@ -46,7 +46,7 @@
 				<div class="btn-group">
 
 					<sec:authorize access="hasRole('ROLE_ANONYMOUS')">
-						<a href="login.jsp"><button type="button"
+						<a href="login"><button type="button"
 								class="btn btn-default">Log in</button></a>
 						<a href="registration"><button type="submit"
 								class="btn btn-default">Sign up</button></a>
@@ -61,6 +61,7 @@
 			</div>
 		</div>
 		<div class="btn-group" role="toolbar" style="margin-left: 20px;">
+		<a class="btn btn-default" href="welcome" role="button">Home</a>
 			<a class="btn btn-default" href="products" role="button">Products</a>
 			<sec:authorize access="hasRole('ROLE_ADMIN')">
 				<a class="btn btn-default" href="userList" role="button">User list</a>

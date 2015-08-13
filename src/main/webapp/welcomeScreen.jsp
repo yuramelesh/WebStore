@@ -18,6 +18,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script
 	src='<jstl:url value="/resources/bootstrap-3.3.5-dist/js/bootstrap.min.js" />'></script>
+<script src='<jstl:url value="/resources/ajax/ajax.js" />'></script>
 </head>
 <body>
 	<div class="row">
@@ -37,32 +38,34 @@
 			</form>
 		</div>
 		<div class="col-md-9">
-		<jstl:forEach items="${products}" var="product">
-			<div class="col-md-3">
-				<table class="table table-striped">
-					<tr>
-						<td><a href="productProfile?id=${product.id}">${product.name}</a></td>
-					</tr>
-					<tr>
-						<td><img height="100" src="${product.photo}"></td>
-					</tr>
-					<tr>
-						<td>${product.price}$</td>
-					</tr>
-					<tr>
-						<td><sec:authorize access="hasRole('ROLE_USER')">
-								<form action="toCart">
-									<button type="submit" class="btn btn-warning" name="id"
-										value="${product.id}">Add to cart</button>
-								</form>
-							</sec:authorize></td>
-					</tr>
-				</table>
-			</div>
-		</jstl:forEach>
+			<jstl:forEach items="${products}" var="product">
+				<div class="col-md-3">
+					<table class="table table-striped">
+						<tr>
+							<td><a href="productProfile?id=${product.id}">${product.name}</a></td>
+						</tr>
+						<tr>
+							<td><img height="100" src="${product.photo}"></td>
+						</tr>
+						<tr>
+							<td>${product.price}$</td>
+						</tr>
+						<tr>
+							<td><sec:authorize access="hasRole('ROLE_USER')">
+									<form action="toCart" method="post">
+										<button type="submit" class="btn btn-warning" name="id"
+											value="${product.id}">Add to cart</button>
+									</form>
+								</sec:authorize></td>
+						</tr>
+					</table>
+				</div>
+			</jstl:forEach>
 		</div>
-		<div class="col-md-1">
-		</div>
+		<div class="col-md-1"></div>
 	</div>
+	<a href="javascript:loadContent('parameterValue')">Load Ajax
+		content</a>
+	<div id="prtCnt">Date:</div>
 </body>
 </html>

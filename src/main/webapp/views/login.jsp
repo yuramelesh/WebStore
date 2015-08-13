@@ -15,38 +15,26 @@
 <title>Web store</title>
 </head>
 <body>
-	<div class="page-header" style="margin-top: 0px;">
-		<div class="row">
-			<div class="col-md-2">
-				<div style="margin-left: 20px;">
-					<h1>
-						WEB<small> <a href="welcome">store</a></small>
-					</h1>
-				</div>
-			</div>
-		</div>
-	</div>
 
 	<div class="row">
 		<div class="col-md-2"></div>
 		<div class="col-md-3">
-			<h3>Log in form</h3>
+
+			<h3>Login form</h3>
+
+			<jstl:if test="${error != null}">
+				<p style="text-color: red;">${error}</p>
+			</jstl:if>
 			<form name='...' action='j_spring_security_check' method='POST'>
 
 				Username<input class="form-control" type='text' name='username'
 					value=''> Password<input class="form-control"
 					type='password' name='password' /> <br>
 				<button type="submit" class="btn btn-default">login</button>
-<p></p>
+				<p></p>
 			</form>
 		</div>
 	</div>
 
-
-	<div class="panel panel-default">
-		<center>
-			<div class="panel-body">Melesh &#169 2015</div>
-		</center>
-	</div>
 </body>
 </html>

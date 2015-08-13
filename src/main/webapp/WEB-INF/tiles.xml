@@ -84,5 +84,10 @@
 		<put-attribute name="title" value="Search"></put-attribute>
 		<put-attribute name="body" value="/views/searching.jsp"></put-attribute>
 	</definition>
+	
+	<definition name="login" extends="base">
+		<put-attribute name="title" value="Log in"></put-attribute>
+		<put-attribute name="body" value="/views/login.jsp"></put-attribute>
+	</definition>
 
 </tiles-definitions>
