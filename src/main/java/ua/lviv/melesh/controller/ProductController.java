@@ -40,16 +40,19 @@ public class ProductController {
 	}
 
 	@RequestMapping(value = "/products", method = RequestMethod.POST)
-	public String creatingProduct(Model model,
+	public String creatingProduct(
+			Model model,
 			@RequestParam(value = "name") String name,
 			@RequestParam(value = "price") Integer price,
 			@RequestParam(value = "productPhoto") String photo,
-			@RequestParam(value = "category") String category) {
+			@RequestParam(value = "category") String category,
+			@RequestParam(value = "productDescription") String productDescription) {
 		Product product = new Product();
 		product.setName(name);
 		product.setPrice(price);
 		product.setCategory(category);
 		product.setPhoto(photo);
+		product.setDescription(productDescription);
 		pService.insertProduct(product);
 		return "redirect:/products";
 	}

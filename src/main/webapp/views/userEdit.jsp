@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="jstl"%>
 <%@ page import="java.util.List"%>
@@ -14,10 +14,11 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script
 	src='<jstl:url value="/resources/bootstrap-3.3.5-dist/js/bootstrap.min.js" />'></script>
+<script src='<jstl:url value="/resources/js/main.js" />'></script>
 <title>List of users</title>
 </head>
 <body>
-	<div class="row">
+	<div class="row" id="content">
 		<div class="col-md-1"></div>
 		<div class="col-md-10">
 			<h3>Edit ${user.name}`s profile</h3>
@@ -32,61 +33,64 @@
 					</tr>
 					<tr>
 						<td>Name</td>
-						<td>${user.name}</td>
-						<form action="editingName">
-							<td><input type="text" class="form-control" name="newName"></td>
-							<td><button type="submit" class="btn btn-warning" name="id"
-									value="${user.id}">change</button></td>
+						<td id="name">${user.name}</td>
+						<form id="nameForm" method="post">
+							<td><input id="username" type="text" class="form-control"
+								name="newName">
+							<td><button id="id" type="submit" class="btn btn-warning"
+									name="id" value="${user.id}">change</button></td>
 						</form>
 					</tr>
 					<tr>
 						<td>E-mail</td>
-						<td>${user.email}</td>
-						<form action="editingEmail">
-							<td><input type="email" class="form-control" name="newEmail"></td>
-							<td><button type="submit" class="btn btn-warning" name="id"
-									value="${user.id}">change</button></td>
+						<td id="email">${user.email}</td>
+						<form id="emailForm" method="post">
+							<td><input id="useremail" type="email" class="form-control"
+								name="newEmail"></td>
+							<td><button id="id" type="submit" class="btn btn-warning"
+									name="id" value="${user.id}">change</button></td>
 						</form>
 					</tr>
 					<tr>
 						<td>Photo URL</td>
-						<td>${user.photoUrl}</td>
-						<form action="newPhoto">
-							<td><input type="text" class="form-control" name="newPhoto"></td>
-							<td><button type="submit" class="btn btn-warning" name="id"
-									value="${user.id}">change</button></td>
+						<td id="photo">${user.photoUrl}</td>
+						<form id="photoForm" method="post">
+							<td><input id="userphoto" type="text" class="form-control"
+								name="newPhoto"></td>
+							<td><button id="id" type="submit" class="btn btn-warning"
+									name="id" value="${user.id}">change</button></td>
 						</form>
 					</tr>
 					<tr>
 						<td>Password</td>
-						<td>${user.password}</td>
-						<form action="editingPassword">
-							<td><input type="text" class="form-control"
-								name="newPassword"></td>
-							<td><button type="submit" class="btn btn-warning" name="id"
-									value="${user.id}">change</button></td>
+						<td id="password">${user.password}</td>
+						<form id="passwordForm" method="post">
+							<td><input id="userpassword" type="text"
+								class="form-control" name="newPassword"></td>
+							<td><button id="id" type="submit" class="btn btn-warning"
+									name="id" value="${user.id}">change</button></td>
 						</form>
 					</tr>
 					<tr>
 						<td>Status</td>
-						<td><jstl:if test="${user.active == true}">
+						<td id="status"><jstl:if test="${user.active == true}">
 								<p>Active</p>
-							</jstl:if>
-							<jstl:if test="${user.active == false}">
+							</jstl:if> <jstl:if test="${user.active == false}">
 								<p>Non active</p>
 							</jstl:if></td>
-						<form action="editingActivity">
+						<form id="statusForm" method="post">
 							<td></td>
-							<td><button type="submit" class="btn btn-warning" name="id"
-									value="${user.id}">change</button></td>
+							<td><button id="id" type="submit" class="btn btn-warning"
+									name="id" value="${user.id}">change</button></td>
 						</form>
+
 					</tr>
 					<tr>
 						<td>Role</td>
-						<td>${user.role}</td>
-						<form action="editingRole">
+						<td id="role">${user.role}</td>
+						<form id="roleForm" method="post">
 							<td></td>
-							<td><button type="submit" class="btn btn-warning" name="id"
+							<td><button  id="id" type="submit" class="btn btn-warning" name="id"
 									value="${user.id}">change</button></td>
 						</form>
 					</tr>

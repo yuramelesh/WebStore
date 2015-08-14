@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import ua.lviv.melesh.domain.User;
 import ua.lviv.melesh.service.UserService;
@@ -52,79 +53,76 @@ public class UserController {
 	}
 
 	// @Secured({"ROLE_ADMIN"})
-	@RequestMapping(value = "/editingName")
-	public String editingUserName(Model model,
-			@RequestParam(value = "id") Integer id,
-			@RequestParam(value = "newName") String name) {
-		model.addAttribute("user", uService.getUserById(id));
+	@RequestMapping(value = "/newUserName", method = RequestMethod.POST)
+	public @ResponseBody String setUserName(@RequestParam String name,
+			@RequestParam Integer id) {
 		User user = uService.getUserById(id);
 		user.setName(name);
 		uService.insertUser(user);
-		return "redirect:/editPage?id=" + id;
+		return name;
+
 	}
 
-	@RequestMapping(value = "/editingEmail")
-	public String editingUserEmail(Model model,
-			@RequestParam(value = "id") Integer id,
-			@RequestParam(value = "newEmail") String email) {
-		model.addAttribute("user", uService.getUserById(id));
+	@RequestMapping(value = "/newUserEmail", method = RequestMethod.POST)
+	public @ResponseBody String setUserEmail(@RequestParam String email,
+			@RequestParam Integer id) {
 		User user = uService.getUserById(id);
 		user.setEmail(email);
 		uService.insertUser(user);
-		return "redirect:/editPage?id=" + id;
+		return email;
+
 	}
 
-	@RequestMapping(value = "/newPhoto")
-	public String newUserPhoto(Model model,
-			@RequestParam(value = "id") Integer id,
-			@RequestParam(value = "newPhoto") String photoUrl) {
-		model.addAttribute("user", uService.getUserById(id));
+	@RequestMapping(value = "/newUserPhoto", method = RequestMethod.POST)
+	public @ResponseBody String setUserPhoto(@RequestParam String photo,
+			@RequestParam Integer id) {
 		User user = uService.getUserById(id);
-		user.setPhotoUrl(photoUrl);
+		user.setPhotoUrl(photo);
 		uService.insertUser(user);
-		return "redirect:/editPage?id=" + id;
+		return photo;
+
 	}
 
-	@RequestMapping(value = "/editingPassword")
-	public String editingUserPassword(Model model,
-			@RequestParam(value = "id") Integer id,
-			@RequestParam(value = "newPassword") String password) {
-		model.addAttribute("user", uService.getUserById(id));
+	@RequestMapping(value = "/newUserPassword", method = RequestMethod.POST)
+	public @ResponseBody String setUserPassword(@RequestParam String password,
+			@RequestParam Integer id) {
 		User user = uService.getUserById(id);
 		user.setPassword(password);
 		uService.insertUser(user);
-		return "redirect:/editPage?id=" + id;
+		return password;
+
 	}
 
-	@RequestMapping(value = "/editingActivity")
-	public String editingUserActivity(Model model,
-			@RequestParam(value = "id") Integer id) {
-		model.addAttribute("user", uService.getUserById(id));
+	@RequestMapping(value = "/newUserStatus", method = RequestMethod.POST)
+	public @ResponseBody String setUserStatus(@RequestParam Integer id) {
 		User user = uService.getUserById(id);
+		String msg;
 		if (user.getActive() == true) {
 			user.setActive(false);
 			uService.insertUser(user);
+			msg = "Non active";
 		} else {
 			user.setActive(true);
 			uService.insertUser(user);
+			msg = "Active";
 		}
-
-		return "redirect:/editPage?id=" + id;
+		return msg;
 	}
 
-	@RequestMapping(value = "/editingRole")
-	public String editingUserRole(Model model,
-			@RequestParam(value = "id") Integer id) {
-		model.addAttribute("user", uService.getUserById(id));
+	@RequestMapping(value = "/newUserRole", method = RequestMethod.POST)
+	public @ResponseBody String setUserRole(@RequestParam Integer id) {
 		User user = uService.getUserById(id);
+		String role;
 		if (user.getRole().equals("ROLE_USER")) {
 			user.setRole("ROLE_ADMIN");
 			uService.insertUser(user);
+			role = "ROLE_ADMIN";
 		} else {
 			user.setRole("ROLE_USER");
 			uService.insertUser(user);
+			role = "ROLE_USER";
 		}
-		return "redirect:/editPage?id=" + id;
+		return role;
 	}
 
 	@RequestMapping(value = "/removeUser")

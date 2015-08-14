@@ -55,7 +55,7 @@
 			<h3>${product.name}</h3>
 			<table class="table table-striped">
 				<tr>
-					<td>${product.category}</td>
+					<td><a href="search?category=${product.category}">${product.category}</a></td>
 				</tr>
 				<tr>
 					<td>Price:${product.price} $</td>
@@ -63,6 +63,14 @@
 				<tr>
 					<td>${product.description}</td>
 				</tr>
+				<tr>
+				<td><sec:authorize access="hasRole('ROLE_USER')">
+									<form action="toCart" method="post"  >
+										<button type="submit" class="btn btn-warning" name="id"
+											value="${product.id}">Add to cart</button>
+									</form>
+								</sec:authorize></td>
+								</tr>
 			</table>
 		</div>
 	</div>

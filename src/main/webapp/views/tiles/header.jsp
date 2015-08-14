@@ -54,8 +54,8 @@
 					<sec:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_USER')">
 						<a href="logout"><button type="button" class="btn btn-default">logout</button></a>
 					</sec:authorize>
-					<br> Hello <a href="profile?id="><sec:authentication
-							property="name" /></a> !
+					<br> Hello <sec:authentication
+							property="name" /> !
 
 
 				</div>

@@ -50,6 +50,11 @@
 			<div class="col-md-4">
 				Photo<input type="text" class="form-control" name="productPhoto">
 			</div>
+			<div class="col-md-4">
+			<br>
+				Description<textarea class="form-control" rows="5"  maxlength="224" class="form-control" name="productDescription">
+				</textarea>
+			</div>
 		</form>
 		<div class="col-md-1"></div>
 	</div>
