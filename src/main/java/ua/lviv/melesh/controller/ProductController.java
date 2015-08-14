@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import ua.lviv.melesh.domain.Product;
 import ua.lviv.melesh.domain.ProductCategory;
@@ -76,61 +77,6 @@ public class ProductController {
 
 	}
 
-	@RequestMapping(value = "/newProductName")
-	public String newProductName(Model model,
-			@RequestParam(value = "newName") String name,
-			@RequestParam(value = "id") Integer id) {
-		model.addAttribute("product", pService.getProductById(id));
-		Product product = pService.getProductById(id);
-		product.setName(name);
-		pService.insertProduct(product);
-		return "redirect:/productCard?id=" + id;
-	}
-
-	@RequestMapping(value = "/newProductDescription")
-	public String newProductDescription(Model model,
-			@RequestParam(value = "newDescription") String description,
-			@RequestParam(value = "id") Integer id) {
-		model.addAttribute("product", pService.getProductById(id));
-		Product product = pService.getProductById(id);
-		product.setDescription(description);
-		pService.insertProduct(product);
-		return "redirect:/productCard?id=" + id;
-	}
-
-	@RequestMapping(value = "/newProductPhoto")
-	public String newProductPhoto(Model model,
-			@RequestParam(value = "newPhoto") String photoUrl,
-			@RequestParam(value = "id") Integer id) {
-		model.addAttribute("product", pService.getProductById(id));
-		Product product = pService.getProductById(id);
-		product.setPhoto(photoUrl);
-		pService.insertProduct(product);
-		return "redirect:/productCard?id=" + id;
-	}
-
-	@RequestMapping(value = "/editingCategory")
-	public String editingCategory(Model model,
-			@RequestParam(value = "newCategory") String category,
-			@RequestParam(value = "id") Integer id) {
-		model.addAttribute("product", pService.getProductById(id));
-		Product product = pService.getProductById(id);
-		product.setCategory(category);
-		pService.insertProduct(product);
-		return "redirect:/productCard?id=" + id;
-	}
-
-	@RequestMapping(value = "/newProductPrice")
-	public String newProductPrice(Model model,
-			@RequestParam(value = "newPrice") Integer price,
-			@RequestParam(value = "id") Integer id) {
-		model.addAttribute("product", pService.getProductById(id));
-		Product product = pService.getProductById(id);
-		product.setPrice(price);
-		pService.insertProduct(product);
-		return "redirect:/productCard?id=" + id;
-	}
-
 	@RequestMapping(value = "/productProfile")
 	public String productProfile(Model model,
 			@RequestParam(value = "id") Integer id) {
@@ -138,4 +84,50 @@ public class ProductController {
 		model.addAttribute("photos", phService.getByProductId(id));
 		return "productProfile";
 	}
+
+	@RequestMapping(value = "/newProductName", method = RequestMethod.POST)
+	public @ResponseBody String setProductName(@RequestParam String name,
+			@RequestParam Integer id) {
+		Product product = pService.getProductById(id);
+		product.setName(name);
+		pService.insertProduct(product);
+		return name;
+	}
+
+	@RequestMapping(value = "/newProductPrice", method = RequestMethod.POST)
+	public @ResponseBody String setProductPrice(@RequestParam Integer price,
+			@RequestParam Integer id) {
+		Product product = pService.getProductById(id);
+		product.setPrice(price);
+		pService.insertProduct(product);
+		return price.toString();
+	}
+
+	@RequestMapping(value = "/newProductCategory", method = RequestMethod.POST)
+	public @ResponseBody String setProductCategory(
+			@RequestParam String category, @RequestParam Integer id) {
+		Product product = pService.getProductById(id);
+		product.setCategory(category);
+		pService.insertProduct(product);
+		return category.toString();
+	}
+
+	@RequestMapping(value = "/newProductPhoto", method = RequestMethod.POST)
+	public @ResponseBody String setProductPhoto(@RequestParam String photo,
+			@RequestParam Integer id) {
+		Product product = pService.getProductById(id);
+		product.setPhoto(photo);
+		pService.insertProduct(product);
+		return photo;
+	}
+
+	@RequestMapping(value = "/newProductDescription", method = RequestMethod.POST)
+	public @ResponseBody String setProductDescription(
+			@RequestParam String description, @RequestParam Integer id) {
+		Product product = pService.getProductById(id);
+		product.setDescription(description);
+		pService.insertProduct(product);
+		return description;
+	}
+
 }

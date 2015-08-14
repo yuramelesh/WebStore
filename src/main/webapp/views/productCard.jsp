@@ -16,7 +16,8 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script
 	src='<jstl:url value="/resources/bootstrap-3.3.5-dist/js/bootstrap.min.js" />'></script>
-<title>Card</title>
+<script src='<jstl:url value="/resources/js/main.js" />'></script>
+<title>Product card</title>
 </head>
 <body>
 	<div class="row">
@@ -34,50 +35,54 @@
 					</tr>
 					<tr>
 						<td>Name</td>
-						<td>${product.name}</td>
-						<form action="newProductName">
-							<td><input type="text" class="form-control" name="newName"></td>
-							<td><button type="submit" class="btn btn-warning" name="id"
-									value="${product.id}">change</button></td>
+						<td id="name">${product.name}</td>
+						<form id="producNameForm" method="post">
+							<td><input id="productname" type="text" class="form-control"
+								name="newName">
+							<td><button id="id" type="submit" class="btn btn-warning"
+									name="id" value="${product.id}">change</button></td>
 						</form>
 					</tr>
 					<tr>
 						<td>Price</td>
-						<td>${product.price}</td>
-						<form action="newProductPrice">
-							<td><input type="text" class="form-control" name="newPrice"></td>
-							<td><button type="submit" class="btn btn-warning" name="id"
-									value="${product.id}">change</button></td>
+						<td id="price">${product.price}</td>
+						<form id="productPriceForm" method="post">
+							<td><input id="productprice" type="text"
+								class="form-control" name="newPrice"></td>
+							<td><button id="id" type="submit" class="btn btn-warning"
+									name="id" value="${product.id}">change</button></td>
 						</form>
 					</tr>
 					<tr>
 						<td>Category</td>
-						<td>${product.category}</td>
-						<td><form action="editingCategory">
-								<select class="form-control" name="newCategory">
+						<td id="category">${product.category}</td>
+						<td><form id="productCategoryForm" method="post">
+								<select id="productcategory" class="form-control"
+									name="newCategory">
 									<jstl:forEach items="${productCategory}" var="category">
 										<option>${category.name}</option>
 									</jstl:forEach>
 								</select>
-								<td><button type="submit" class="btn btn-warning" name="id"
-										value="${product.id}">change</button></td>
+								<td><button id="id" type="submit" class="btn btn-warning"
+										name="id" value="${product.id}">change</button></td>
 							</form></td>
 					</tr>
 					<tr>
 						<td>Main photo</td>
-						<td>New photo url</td>
-						<form action="newProductPhoto">
-							<td><input type="text" class="form-control" name="newPhoto"></td>
-							<td><button type="submit" class="btn btn-warning" name="id"
+						<td id="photo">${product.photo}</td>
+						<form id="productPhotoForm" method="post">
+							<td><input id="productphoto" type="text" class="form-control" name="newPhoto"></td>
+							<td><button id="id" type="submit" class="btn btn-warning" name="id"
 									value="${product.id}">change</button></td>
 						</form>
 					</tr>
 					<tr>
 						<td>Description</td>
-						<td>${product.description}</td>
-						<form action="newProductDescription">
-							<td><input style="" type="text" maxlength="224" class="form-control" name="newDescription"></td>
-							<td><button type="submit" class="btn btn-warning" name="id"
+						<td id="description">${product.description}</td>
+						<form id="productDescriptionForm" method="post">
+							<td><input id="productdescription" type="text" maxlength="224"
+								class="form-control" name="newDescription"></td>
+							<td><button id="id" type="submit" class="btn btn-warning" name="id"
 									value="${product.id}">change</button></td>
 						</form>
 					</tr>

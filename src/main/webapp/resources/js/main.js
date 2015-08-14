@@ -86,5 +86,80 @@ $(document).ready(
 				});
 				return false;
 			});
+			
+			$('#producNameForm').submit(
+					function() {
+						$.ajax({
+							type : "POST",
+							url : "newProductName",
+							data : "name=" + $("#productname").val() + "&id="
+									+ $("#id").val(),
+							success : function(name) {
+								$("#name").text(name);
+								$('#producNameForm').trigger('reset');
+							}
+						});
+						return false;
+					});
+			
+			$('#productPriceForm').submit(
+					function() {
+						$.ajax({
+							type : "POST",
+							url : "newProductPrice",
+							data : "price=" + $("#productprice").val() + "&id="
+									+ $("#id").val(),
+							success : function(price) {
+								$("#price").text(price);
+								$('#productPriceForm').trigger('reset');
+							}
+						});
+						return false;
+					});
+			
+			$('#productCategoryForm').submit(
+					function() {
+						$.ajax({
+							type : "POST",
+							url : "newProductCategory",
+							data : "category=" + $("#productcategory").val() + "&id="
+									+ $("#id").val(),
+							success : function(category) {
+								$("#category").text(category);
+								$('#productCategoryForm').trigger('reset');
+							}
+						});
+						return false;
+					});
+			
+			$('#productPhotoForm').submit(
+					function() {
+						$.ajax({
+							type : "POST",
+							url : "newProductPhoto",
+							data : "photo=" + $("#productphoto").val() + "&id="
+									+ $("#id").val(),
+							success : function(photo) {
+								$("#photo").text(photo);
+								$('#productPhotoForm').trigger('reset');
+							}
+						});
+						return false;
+					});
+			
+			$('#productDescriptionForm').submit(
+					function() {
+						$.ajax({
+							type : "POST",
+							url : "newProductDescription",
+							data : "description=" + $("#productdescription").val() + "&id="
+									+ $("#id").val(),
+							success : function(description) {
+								$("#description").text(description);
+								$('#productDescriptionForm').trigger('reset');
+							}
+						});
+						return false;
+					});
 
 		});
