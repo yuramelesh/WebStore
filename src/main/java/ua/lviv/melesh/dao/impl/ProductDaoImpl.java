@@ -15,8 +15,8 @@ public class ProductDaoImpl extends BaseDaoImpl<Product> implements ProductDao {
 	@SuppressWarnings("unchecked")
 	@Transactional
 	public List<Product> getByName(String name) {
-		return getEm().createNamedQuery("Product.findByName")
-				.setParameter("name", name).getResultList();
+		return (List<Product>) getEm().createNamedQuery("Product.findByName")
+				.setParameter("name", name);
 	}
 
 	@Transactional

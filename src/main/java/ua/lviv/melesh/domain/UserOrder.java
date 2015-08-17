@@ -24,7 +24,7 @@ public class UserOrder {
 
 	@Column
 	private String descr;
-	
+
 	@Column
 	private boolean status = false;
 
@@ -40,9 +40,11 @@ public class UserOrder {
 		super();
 	}
 
-	public UserOrder(String descr, User user, List<Product> products) {
+	public UserOrder(String descr, boolean status, User user,
+			List<Product> products) {
 		super();
 		this.descr = descr;
+		this.status = status;
 		this.user = user;
 		this.products = products;
 	}

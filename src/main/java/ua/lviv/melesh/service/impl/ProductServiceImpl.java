@@ -41,4 +41,8 @@ public class ProductServiceImpl implements ProductService {
 		return dao.getByCategory(category);
 	}
 
+	public List<Product> getFourResult(Integer index) {
+		return dao.getFourResult(index);
+	}
+
 }

@@ -16,12 +16,7 @@
 	rel="stylesheet">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script
-	src='<jstl:url value="bootstrap-3.3.5-dist/js/bootstrap.min.js" />'></script>
-<script type="text/javascript" src="ajax.js"></script>
-<script src="/resources/js/jquery-1.11.3.js" type="text/javascript"></script>
 </head>
-
 <body>
 	<div class="row">
 		<div class="col-md-2">

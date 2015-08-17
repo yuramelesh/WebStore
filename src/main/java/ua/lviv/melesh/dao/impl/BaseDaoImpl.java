@@ -32,6 +32,12 @@ public abstract class BaseDaoImpl<T> implements BaseDao<T> {
 		return em.createQuery("From " + entityClass.getName()).getResultList();
 	}
 
+	@SuppressWarnings("unchecked")
+	public List<T> getFourResult(Integer index) {
+		return em.createQuery("From " + entityClass.getName())
+				.setFirstResult(index).setMaxResults(4).getResultList();
+	}
+
 	@Transactional
 	public void create(T entity) {
 		em.merge(entity);
@@ -49,13 +55,15 @@ public abstract class BaseDaoImpl<T> implements BaseDao<T> {
 
 	@SuppressWarnings("unchecked")
 	protected final Class<T> getEntityClass() {
-		final Type type = getClass().getGenericSuperclass() instanceof ParameterizedType ? getClass().getGenericSuperclass() : getClass().getSuperclass()
+		final Type type = getClass().getGenericSuperclass() instanceof ParameterizedType ? getClass()
+				.getGenericSuperclass() : getClass().getSuperclass()
 				.getGenericSuperclass();
 		if (type instanceof ParameterizedType) {
 			final ParameterizedType paramType = (ParameterizedType) type;
 			return (Class<T>) paramType.getActualTypeArguments()[0];
 		} else
-			throw new IllegalArgumentException("Could not guess entity class by reflection");
+			throw new IllegalArgumentException(
+					"Could not guess entity class by reflection");
 	}
 
 }

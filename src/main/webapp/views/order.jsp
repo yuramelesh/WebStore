@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="jstl"%>
+<%@ taglib uri="http://www.springframework.org/security/tags"
+	prefix="sec"%>
 <%@ page import="java.util.List"%>
 <%@ page import="ua.lviv.melesh.domain.User"%>
-<%@ page import="ua.lviv.melesh.domain.Product"%>
-<%@ page import="ua.lviv.melesh.domain.ProductCategory"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -16,6 +16,8 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script
 	src='<jstl:url value="/resources/bootstrap-3.3.5-dist/js/bootstrap.min.js" />'></script>
+<script src='<jstl:url value="/resources/js/main.js" />'></script>
+<title>Order</title>
 </head>
 <body>
 	<div class="row">
@@ -26,7 +28,6 @@
 				<table class="table table-striped">
 					<thead>
 						<tr>
-							<th></th>
 							<th>Name</th>
 							<th>Price</th>
 						</tr>
@@ -34,33 +35,33 @@
 					<tbody>
 						<jstl:forEach items="${cart}" var="product">
 							<tr>
-								<td><jstl:if test="${product.photo != null}">
-										<img height="100" src="${product.photo}" />
-									</jstl:if></td>
 								<td><a href="productProfile?id=${product.id}">${product.name}</a></td>
-
 								<td>${product.price}</td>
-
-								<td><form action="removeFromCart">
-										<button type="submit" class="btn btn-danger" name="id"
-											value="${product.id}">remove</button>
-									</form></td>
 							</tr>
 						</jstl:forEach>
 						<tr>
-							<td></td>
 							<td>Total:</td>
 							<td>${total}$</td>
 
-							<td><form action="ordering" method="post">
-									<button type="submit" class="btn btn-warning">Order
-										now!</button>
-								</form></td>
+						</tr>
+
+						<tr>
+						<td>
+						</td>
+							<td>
+								<form action="#" method="post">
+									<button type="submit" class="btn btn-warning">Pay by credit card</button>
+								</form>
+							<br>
+								<form action="billingAccount" method="post" name="table" value="${cart}">
+									<button type="submit" class="btn btn-warning">Get a billing account</button>
+								</form>
+							</td>
 
 						</tr>
+
 					</tbody>
 				</table>
-
 			</div>
 		</div>
 	</div>

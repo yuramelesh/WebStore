@@ -11,6 +11,8 @@ public interface ProductService {
 
 	List<Product> getAllProducts();
 
+	List<Product> getFourResult(Integer index);
+
 	List<Product> getProductByName(String name);
 
 	List<Product> getProductByCategory(String category);
