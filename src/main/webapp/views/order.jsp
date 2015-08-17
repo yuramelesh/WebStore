@@ -53,8 +53,8 @@
 									<button type="submit" class="btn btn-warning">Pay by credit card</button>
 								</form>
 							<br>
-								<form action="billingAccount" method="post" name="table" value="${cart}">
-									<button type="submit" class="btn btn-warning">Get a billing account</button>
+								<form action="billingAccount" method="post">
+									<button   type="submit" class="btn btn-warning">Get a billing account</button>
 								</form>
 							</td>
 

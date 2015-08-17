@@ -52,7 +52,7 @@
 							<td>Total:</td>
 							<td>${total}$</td>
 
-							<td><form action="ordering" method="post">
+							<td><form action="ordering" method="post" >
 									<button type="submit" class="btn btn-warning">Order
 										now!</button>
 								</form></td>

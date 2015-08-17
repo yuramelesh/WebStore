@@ -26,6 +26,9 @@ public class UserOrder {
 	private String descr;
 
 	@Column
+	private Integer summ;
+
+	@Column
 	private boolean status = false;
 
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
@@ -40,10 +43,11 @@ public class UserOrder {
 		super();
 	}
 
-	public UserOrder(String descr, boolean status, User user,
+	public UserOrder(String descr, Integer summ, boolean status, User user,
 			List<Product> products) {
 		super();
 		this.descr = descr;
+		this.summ = summ;
 		this.status = status;
 		this.user = user;
 		this.products = products;
@@ -87,6 +91,21 @@ public class UserOrder {
 
 	public void setStatus(boolean status) {
 		this.status = status;
+	}
+
+	public Integer getSumm() {
+		return summ;
+	}
+
+	public void setSumm(Integer summ) {
+		this.summ = summ;
+	}
+
+	@Override
+	public String toString() {
+		return "UserOrder [id=" + id + ", descr=" + descr + ", summ=" + summ
+				+ ", status=" + status + ", user=" + user + ", products="
+				+ products + "]";
 	}
 
 }
