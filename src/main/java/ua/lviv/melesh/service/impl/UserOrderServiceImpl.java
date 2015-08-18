@@ -1,5 +1,7 @@
 package ua.lviv.melesh.service.impl;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,15 @@ public class UserOrderServiceImpl implements UserOrderService {
 	public void insertUserOrder(UserOrder userOrder) {
 		dao.create(userOrder);
 
+	}
+
+	public void deleteUserOrder(UserOrder userOrder) {
+		dao.delete(userOrder);
+
+	}
+
+	public List<UserOrder> getAllUserOrders() {
+		return dao.findAll();
 	}
 
 }

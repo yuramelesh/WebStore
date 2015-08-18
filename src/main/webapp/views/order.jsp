@@ -42,24 +42,22 @@
 						<tr>
 							<td>Total:</td>
 							<td>${total}$</td>
-
 						</tr>
-
+						<form action="billingAccount" method="post">
+						<input type="hidden" name="name" value="<sec:authentication property="name"/>">
 						<tr>
-						<td>
-						</td>
-							<td>
-								<form action="#" method="post">
-									<button type="submit" class="btn btn-warning">Pay by credit card</button>
-								</form>
-							<br>
-								<form action="billingAccount" method="post">
-									<button   type="submit" class="btn btn-warning">Get a billing account</button>
-								</form>
-							</td>
-
+							<td>Add description</td>
+							<td><textarea id="orderDescription" class="form-control"
+									rows="3" maxlength="224" class="form-control"
+									name="orderDescription"></textarea></td>
 						</tr>
-
+						<tr>
+							<td></td>
+							<td><br>
+								<button type="submit" class="btn btn-warning"
+									id="orderDescription">Get a billing account</button></td>
+						</tr>
+						</form>
 					</tbody>
 				</table>
 			</div>

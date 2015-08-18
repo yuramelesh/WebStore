@@ -94,5 +94,10 @@
 		<put-attribute name="title" value="Order"></put-attribute>
 		<put-attribute name="body" value="/views/order.jsp"></put-attribute>
 	</definition>
+	
+	<definition name="orderSucces" extends="base">
+		<put-attribute name="title" value="Thank`s"></put-attribute>
+		<put-attribute name="body" value="/views/orderSucces.jsp"></put-attribute>
+	</definition>
 
 </tiles-definitions>

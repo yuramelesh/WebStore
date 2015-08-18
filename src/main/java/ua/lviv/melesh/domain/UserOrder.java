@@ -1,5 +1,6 @@
 package ua.lviv.melesh.domain;
 
+import java.sql.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -29,6 +30,9 @@ public class UserOrder {
 	private Integer summ;
 
 	@Column
+	private Date date;
+
+	@Column
 	private boolean status = false;
 
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
@@ -43,11 +47,12 @@ public class UserOrder {
 		super();
 	}
 
-	public UserOrder(String descr, Integer summ, boolean status, User user,
-			List<Product> products) {
+	public UserOrder(String descr, Integer summ, Date date, boolean status,
+			User user, List<Product> products) {
 		super();
 		this.descr = descr;
 		this.summ = summ;
+		this.date = date;
 		this.status = status;
 		this.user = user;
 		this.products = products;
@@ -99,6 +104,14 @@ public class UserOrder {
 
 	public void setSumm(Integer summ) {
 		this.summ = summ;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
 	}
 
 	@Override
