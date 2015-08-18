@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import ua.lviv.melesh.domain.User;
+import ua.lviv.melesh.domain.UserOrder;
 import ua.lviv.melesh.service.UserService;
 
 @Controller
@@ -134,8 +135,12 @@ public class UserController {
 
 	@RequestMapping(value = "/profile")
 	public String profilePage(Model model,
-			@RequestParam(value = "id") Integer id) {
-		model.addAttribute("user", uService.getUserById(id));
+			@RequestParam(value = "name") String name) {
+		User user = uService.getUserByName(name);
+		List<UserOrder> list = user.getUserOrder();
+		System.out.println(list);
+		model.addAttribute("user", user);
+		model.addAttribute("orders", list);
 		return "profile";
 	}
 }

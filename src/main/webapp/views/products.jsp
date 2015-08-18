@@ -20,7 +20,7 @@
 <title>List of users</title>
 </head>
 <script>
-var role = '<sec:authentication property='authorities'/>'.toString();
+var role = '<sec:authentication property='authorities'/>';
 
 	$(document).ready(function() {
 		$.ajax({
@@ -30,7 +30,7 @@ var role = '<sec:authentication property='authorities'/>'.toString();
 				dataType : 'json',
 				success : function(products) {
 					$(products).each(function(i) {
-							$('#test_table').append(
+							$('#table').append(
 									'<tr><td>'
 											+ '<img height="100" src="' + products[i].photo + '"/>'
 											+ '</td><td><a href="productProfile?id=' + products[i].id + '">'
@@ -74,7 +74,7 @@ var role = '<sec:authentication property='authorities'/>'.toString();
 						</form>
 					</div>
 				</sec:authorize>
-				<table id="test_table" class="table table-striped">
+				<table id="table" class="table table-striped">
 				</table>
 			</div>
 		</div>

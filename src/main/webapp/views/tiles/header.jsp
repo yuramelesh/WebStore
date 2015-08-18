@@ -56,13 +56,12 @@
 					</sec:authorize>
 					<br> Hello <sec:authentication
 							property="name" /> !
-
-
 				</div>
 			</div>
 		</div>
 		<div class="btn-group" role="toolbar" style="margin-left: 20px;">
 			<sec:authorize access="hasRole('ROLE_USER')">
+			<a class="btn btn-warning" href="profile?name=<sec:authentication property='name'/>" role="button" >Profile</a>
 				<a class="btn btn-warning" href="cart" role="button">Cart</a>
 			</sec:authorize>
 			<a class="btn btn-default" href="welcome" role="button">Home</a> <a

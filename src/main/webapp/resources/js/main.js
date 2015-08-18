@@ -177,8 +177,8 @@ $(document).ready(
 					data : {'index': count, 'name': role},
 					dataType : 'json',
 					success : function(products) {
-						var myTable = $('#test_table');
-						var content = myTable.html();
+						var Table = $('#table');
+						var content = Table.html();
 						
 						$(products).each(function(i) {
 							
@@ -205,7 +205,6 @@ $(document).ready(
 								'<form action="removeProduct">'
 									+'<button type="submit" class="btn btn-danger" name="id" value="' + products[i].id + '">'
 									+'Remove</button></form>';
-								
 							}
 							
 							content = content + 
@@ -224,16 +223,12 @@ $(document).ready(
 							+'</td><td>'
 							+ removeButton
 							+'</td></tr>';
-							myTable.html(content);
+							Table.html(content);
 						});
-						
 					}
-					
 				});
-				
 				count += 4;
 				return false;
 		       }
 			});
-			
 		});

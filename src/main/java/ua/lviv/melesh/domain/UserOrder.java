@@ -117,8 +117,8 @@ public class UserOrder {
 	@Override
 	public String toString() {
 		return "UserOrder [id=" + id + ", descr=" + descr + ", summ=" + summ
-				+ ", status=" + status + ", user=" + user + ", products="
-				+ products + "]";
+				+ ", date=" + date + ", status=" + status + ", user=" + user
+				+ "]";
 	}
 
 }
