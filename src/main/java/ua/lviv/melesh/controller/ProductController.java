@@ -15,6 +15,7 @@ import ua.lviv.melesh.domain.ProductCategory;
 import ua.lviv.melesh.service.PhotosService;
 import ua.lviv.melesh.service.ProductCategoryService;
 import ua.lviv.melesh.service.ProductService;
+import ua.lviv.melesh.service.UserService;
 
 @Controller
 public class ProductController {
@@ -24,6 +25,8 @@ public class ProductController {
 	private PhotosService phService;
 	@Autowired
 	private ProductCategoryService cService;
+	@Autowired
+	private UserService uService;
 
 	@RequestMapping(value = "/products")
 	public String getAllProducts(Model model) {
@@ -42,7 +45,8 @@ public class ProductController {
 
 	@RequestMapping(value = "/json", method = RequestMethod.POST)
 	public @ResponseBody List<Product> getProducts(
-			@RequestParam(value = "index") Integer index) {
+			@RequestParam(value = "index") Integer index,
+			@RequestParam(value = "name") String name) {
 		List<Product> products = pService.getFourResult(index);
 		return products;
 	}

@@ -20,11 +20,13 @@
 <title>List of users</title>
 </head>
 <script>
+var role = '<sec:authentication property='authorities'/>'.toString();
+
 	$(document).ready(function() {
 		$.ajax({
 				type : 'POST',
 				url : 'json',
-				data : {"index" : 0},
+				data : {'index' : 0, 'name' : role},
 				dataType : 'json',
 				success : function(products) {
 					$(products).each(function(i) {
@@ -58,7 +60,6 @@
 		});
 </script>
 <body>
-
 	<div class="row">
 		<div class="col-md-1"></div>
 		<div class="col-md-10">
@@ -73,55 +74,8 @@
 						</form>
 					</div>
 				</sec:authorize>
-				
 				<table id="test_table" class="table table-striped">
 				</table>
-
-				<!--				<table class="table table-striped">
-					<thead>
-						<tr>
-							<th></th>
-							<th>Name</th>
-							<th>Category</th>
-							<th>Price</th>
-						</tr>
-					</thead>
-					<tbody>
-						<jstl:forEach items="${products}" var="product">
-							<tr>
-								<td><jstl:if test="${product.photo != null}">
-										<img height="100" src="${product.photo}" />
-									</jstl:if></td>
-									
-								<td><a href="productProfile?id=${product.id}">${product.name}</a></td>
-								
-								<td><a href="search?category=${product.category}">${product.category}</a></td>
-								
-								<td>${product.price}</td>
-								
-								<td><sec:authorize access="hasRole('ROLE_USER')">
-										<form action="toCart" method="post">
-											<button type="submit" class="btn btn-warning" name="id"
-												value="${product.id}">Add to cart</button>
-										</form>
-									</sec:authorize></td>
-									
-									
-								<sec:authorize access="hasRole('ROLE_ADMIN')">
-									<td><form action="productCard?id=${product.id}">
-											<button type="submit" class="btn btn-warning" name="id"
-												value="${product.id}">edit</button>
-										</form></td>
-									<td><form action="removeProduct">
-											<button type="submit" class="btn btn-danger" name="id"
-												value="${product.id}">remove</button>
-										</form></td>
-								</sec:authorize>
-							</tr>
-						</jstl:forEach>
-					</tbody>
-				</table>
--->
 			</div>
 		</div>
 	</div>

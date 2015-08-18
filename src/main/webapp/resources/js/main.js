@@ -168,18 +168,46 @@ $(document).ready(
 			var inProgress = false;
 			
 			$(window).scroll(function() {
-
+				
 		       if($(window).scrollTop() + $(window).height() >= $(document).height() - 200 && !inProgress) {
 
 				$.ajax({
 					type : 'POST',
 					url : 'json',
-					data : {"index": count},
+					data : {'index': count, 'name': role},
 					dataType : 'json',
 					success : function(products) {
 						var myTable = $('#test_table');
 						var content = myTable.html();
+						
 						$(products).each(function(i) {
+							
+							if(role === '&#91;ROLE&#95;ANONYMOUS&#93;'){
+								var cartButton = '';
+								var editButton = '';
+								var removeButton = '';
+								}
+							
+							if(role === '&#91;ROLE&#95;USER&#93;'){
+								var editButton = '';
+								var removeButton = '';
+								var cartButton =
+								'<form action="toCart" method="post">'
+									+'<button type="submit" class="btn btn-warning" name="id" value="' + products[i].id + '">'
+									+'Add to cart</button></form>';
+								}
+							
+							if(role === '&#91;ROLE&#95;ADMIN&#93;'){
+								var cartButton = '';
+								var editButton = 
+								'<form action="productCard?id=' + products[i].id + '"><button type="submit" class="btn btn-warning" name="id" value="' + products[i].id + '">Edit</button></form>';
+								var removeButton =
+								'<form action="removeProduct">'
+									+'<button type="submit" class="btn btn-danger" name="id" value="' + products[i].id + '">'
+									+'Remove</button></form>';
+								
+							}
+							
 							content = content + 
 							'<tr><td>'
 							+ '<img height="100" src="' + products[i].photo + '"/>'
@@ -189,18 +217,12 @@ $(document).ready(
 							+ products[i].category
 							+ '</a></td><td>'
 							+ products[i].price + '$'
-							+'</td><td><sec:authorize access=\"hasRole(\'ROLE_USER\')\">'
-							+'<form action="toCart" method="post">'
-							+'<button type="submit" class="btn btn-warning" name="id" value="' + products[i].id + '">Add to cart</button>'
-							+'</form></sec:authorize>'
-							+'</td><td><sec:authorize access=\"hasRole(\'ROLE_ADMIN\')\">'
-							+'<form action="productCard?id=' + products[i].id + '">'
-							+'<button type="submit" class="btn btn-warning" name="id" value="' + products[i].id + '">Edit</button>'
-							+'</form></sec:authorize>'
-							+'</td><td><sec:authorize access=\"hasRole(\'ROLE_ADMIN\')\">'
-							+'<form action="removeProduct">'
-							+'<button type="submit" class="btn btn-danger" name="id" value="' + products[i].id + '">Remove</button>'
-							+'</form></sec:authorize>'
+							+'</td><td>'
+							+ cartButton
+							+'</td><td>'
+							+ editButton
+							+'</td><td>'
+							+ removeButton
 							+'</td></tr>';
 							myTable.html(content);
 						});
