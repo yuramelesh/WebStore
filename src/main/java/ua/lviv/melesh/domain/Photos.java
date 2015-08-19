@@ -13,7 +13,8 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
 @Entity
-@NamedQueries({ @NamedQuery(name = "Photos.findById", query = "select p from Photos p where p.id=:id"),
+@NamedQueries({
+		@NamedQuery(name = "Photos.findById", query = "select p from Photos p where p.id=:id"),
 		@NamedQuery(name = "Photos.findByProductId", query = "select p from Photos p where p.product=:product_id") })
 public class Photos {
 	@Id
@@ -60,7 +61,6 @@ public class Photos {
 		this.product = product;
 	}
 
-	@Override
 	public String toString() {
 		return "Photos [id=" + id + ", url=" + url + "]";
 	}

@@ -114,7 +114,6 @@ public class UserOrder {
 		this.date = date;
 	}
 
-	@Override
 	public String toString() {
 		return "UserOrder [id=" + id + ", descr=" + descr + ", summ=" + summ
 				+ ", date=" + date + ", status=" + status + ", user=" + user

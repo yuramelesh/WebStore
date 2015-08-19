@@ -12,7 +12,7 @@ import javax.persistence.NamedQuery;
 @NamedQueries({
 		@NamedQuery(name = "ProductCategory.findById", query = "select p from ProductCategory p where p.id=:id"),
 		@NamedQuery(name = "ProductCategory.findByName", query = "select p from ProductCategory p where p.name=:name") })
-public class ProductCategory{
+public class ProductCategory {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -43,6 +43,10 @@ public class ProductCategory{
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String toString() {
+		return "ProductCategory [id=" + id + ", name=" + name + "]";
 	}
 
 }

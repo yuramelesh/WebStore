@@ -34,9 +34,9 @@
 						</tr>
 					</thead>
 					<tbody>
-					<jstl:if test="${products.isEmpty() == true}">
-					<h1>No results!</h1>
-					</jstl:if>
+						<jstl:if test="${products.isEmpty() == true}">
+							<h1>No results!</h1>
+						</jstl:if>
 						<jstl:forEach items="${products}" var="product">
 							<tr>
 								<td><img height="100" src="${product.photo}" /></td>
@@ -44,11 +44,11 @@
 								<td>${product.category}</td>
 								<td>${product.price}</td>
 								<td><sec:authorize access="hasRole('ROLE_USER')">
-									<form action="toCart" method="post"  >
-										<button type="submit" class="btn btn-warning" name="id"
-											value="${product.id}">Add to cart</button>
-									</form>
-								</sec:authorize></td>
+										<form action="toCart" method="post">
+											<button type="submit" class="btn btn-warning" name="id"
+												value="${product.id}">Add to cart</button>
+										</form>
+									</sec:authorize></td>
 								<sec:authorize access="hasRole('ROLE_ADMIN')">
 									<td><form action="productCard?id=${product.id}">
 											<button type="submit" class="btn btn-warning" name="id"

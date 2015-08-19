@@ -23,14 +23,10 @@
 			<form action="search">
 				<div style="margin-left: 20px;" class="btn-group-vertical"
 					role="group">
-
 					<jstl:forEach items="${productCategory}" var="productCategory">
-
 						<button type="submit" class="btn btn-default" name="category"
 							value="${productCategory.name}">${productCategory.name}</button>
-
 					</jstl:forEach>
-
 				</div>
 			</form>
 		</div>
@@ -60,5 +56,6 @@
 			</jstl:forEach>
 		</div>
 		<div class="col-md-1"></div>
-	</div></body>
+	</div>
+</body>
 </html>

@@ -53,7 +53,6 @@ public class UserController {
 
 	}
 
-	// @Secured({"ROLE_ADMIN"})
 	@RequestMapping(value = "/newUserName", method = RequestMethod.POST)
 	public @ResponseBody String setUserName(@RequestParam String name,
 			@RequestParam Integer id) {

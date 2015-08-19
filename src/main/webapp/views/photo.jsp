@@ -34,13 +34,11 @@
 			<div>
 				<a href="productCard?id=${product.id}">back to product card</a>
 			</div>
-
 			<table class="table table-striped">
 				<thead>
 					<tr>
 						<th></th>
 						<th></th>
-
 					</tr>
 				</thead>
 				<tbody>
@@ -61,6 +59,5 @@
 		</div>
 		<div class="col-md-1"></div>
 	</div>
-
 </body>
 </html>

@@ -14,7 +14,6 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script
 	src='<jstl:url value="/resources/bootstrap-3.3.5-dist/js/bootstrap.min.js" />'></script>
-
 <title>Registration</title>
 </head>
 <body>
@@ -24,7 +23,6 @@
 			<div>
 				<h3>Register new user</h3>
 			</div>
-
 			<div class="row">
 				<div class="col-md-4">
 					<form action="userList" method="POST">

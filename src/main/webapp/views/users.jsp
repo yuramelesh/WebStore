@@ -25,7 +25,6 @@
 			<div>
 				<h3>User`s list</h3>
 			</div>
-
 			<table class="table table-striped">
 				<thead>
 					<tr>
@@ -43,7 +42,7 @@
 					<jstl:forEach items="${users}" var="user">
 						<tr>
 							<td>${user.id}</td>
-							<td><a href="profile?id=${user.id}">${user.name}</a></td>
+							<td><a href="profile?name=${user.name}">${user.name}</a></td>
 							<td>${user.email}</td>
 							<td>${user.role}</td>
 							<sec:authorize access="hasRole('ROLE_ADMIN')">

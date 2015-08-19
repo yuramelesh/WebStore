@@ -36,7 +36,6 @@
 							</div>
 						</jstl:forEach>
 					</div>
-
 					<!-- Controls -->
 					<a class="left carousel-control" href="#carousel-example-generic"
 						role="button" data-slide="prev"> <span
@@ -50,7 +49,6 @@
 				</div>
 			</div>
 		</div>
-
 		<div class="col-md-5">
 			<h3>${product.name}</h3>
 			<table class="table table-striped">
@@ -64,18 +62,16 @@
 					<td>${product.description}</td>
 				</tr>
 				<tr>
-				<td><sec:authorize access="hasRole('ROLE_USER')">
-									<form action="toCart" method="post"  >
-										<button type="submit" class="btn btn-warning" name="id"
-											value="${product.id}">Add to cart</button>
-									</form>
-								</sec:authorize></td>
-								</tr>
+					<td><sec:authorize access="hasRole('ROLE_USER')">
+							<form action="toCart" method="post">
+								<button type="submit" class="btn btn-warning" name="id"
+									value="${product.id}">Add to cart</button>
+							</form>
+						</sec:authorize></td>
+				</tr>
 			</table>
 		</div>
 	</div>
 	<br>
-
-
 </body>
 </html>

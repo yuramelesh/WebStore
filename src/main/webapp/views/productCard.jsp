@@ -71,19 +71,20 @@
 						<td>Main photo</td>
 						<td id="photo">${product.photo}</td>
 						<form id="productPhotoForm" method="post">
-							<td><input id="productphoto" type="text" class="form-control" name="newPhoto"></td>
-							<td><button id="id" type="submit" class="btn btn-warning" name="id"
-									value="${product.id}">change</button></td>
+							<td><input id="productphoto" type="text"
+								class="form-control" name="newPhoto"></td>
+							<td><button id="id" type="submit" class="btn btn-warning"
+									name="id" value="${product.id}">change</button></td>
 						</form>
 					</tr>
 					<tr>
 						<td>Description</td>
 						<td id="description">${product.description}</td>
 						<form id="productDescriptionForm" method="post">
-							<td><input id="productdescription" type="text" maxlength="224"
-								class="form-control" name="newDescription"></td>
-							<td><button id="id" type="submit" class="btn btn-warning" name="id"
-									value="${product.id}">change</button></td>
+							<td><input id="productdescription" type="text"
+								maxlength="224" class="form-control" name="newDescription"></td>
+							<td><button id="id" type="submit" class="btn btn-warning"
+									name="id" value="${product.id}">change</button></td>
 						</form>
 					</tr>
 					<tr>

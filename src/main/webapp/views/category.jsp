@@ -17,14 +17,12 @@
 <title>Add category</title>
 </head>
 <body>
-
 	<div class="row">
 		<div class="col-md-1"></div>
 		<div class="col-md-4">
 			<div>
 				<h3>Category</h3>
 			</div>
-
 			<table class="table table-striped">
 				<thead>
 					<tr>
@@ -53,6 +51,5 @@
 		</div>
 		<div class="col-md-1"></div>
 	</div>
-
 </body>
 </html>

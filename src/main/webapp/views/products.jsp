@@ -21,7 +21,6 @@
 </head>
 <script>
 var role = '<sec:authentication property='authorities'/>';
-
 	$(document).ready(function() {
 		$.ajax({
 				type : 'POST',

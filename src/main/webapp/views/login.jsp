@@ -15,18 +15,14 @@
 <title>Web store</title>
 </head>
 <body>
-
 	<div class="row">
 		<div class="col-md-2"></div>
 		<div class="col-md-3">
-
 			<h3>Login form</h3>
-
 			<jstl:if test="${error != null}">
 				<p style="text-color: red;">${error}</p>
 			</jstl:if>
 			<form name='...' action='j_spring_security_check' method='POST'>
-
 				Username<input class="form-control" type='text' name='username'
 					value=''> Password<input class="form-control"
 					type='password' name='password' /> <br>
@@ -35,6 +31,5 @@
 			</form>
 		</div>
 	</div>
-
 </body>
 </html>

@@ -114,15 +114,9 @@ public class User {
 		this.active = active;
 	}
 
-	@Override
 	public String toString() {
 		return "User [id=" + id + ", name=" + name + ", password=" + password
 				+ ", email=" + email + "]";
-	}
-
-	public Object getAuthorities() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }

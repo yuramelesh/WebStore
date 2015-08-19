@@ -35,14 +35,6 @@ public class ProductController {
 		return "products";
 	}
 
-	// @RequestMapping(produces = MediaType.APPLICATION_JSON_VALUE, value =
-	// "/nextProducts")
-	// public @ResponseBody List<Product> getAllProducts(@RequestParam Integer
-	// num) {
-	// List<Product> products = pService.getAllProducts();
-	// return products;
-	// }
-
 	@RequestMapping(value = "/json", method = RequestMethod.POST)
 	public @ResponseBody List<Product> getProducts(
 			@RequestParam(value = "index") Integer index,
@@ -93,7 +85,6 @@ public class ProductController {
 		model.addAttribute("productCategory", productCategory);
 		model.addAttribute("product", pService.getProductById(id));
 		return "productCard";
-
 	}
 
 	@RequestMapping(value = "/productProfile")

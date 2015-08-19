@@ -24,7 +24,6 @@
 				<img height="200" src="${user.photoUrl}" />
 			</div>
 		</div>
-
 		<div class="col-md-5">
 			<h3></h3>
 			<table class="table table-striped">

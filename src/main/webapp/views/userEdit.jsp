@@ -90,8 +90,8 @@
 						<td id="role">${user.role}</td>
 						<form id="roleForm" method="post">
 							<td></td>
-							<td><button  id="id" type="submit" class="btn btn-warning" name="id"
-									value="${user.id}">change</button></td>
+							<td><button id="id" type="submit" class="btn btn-warning"
+									name="id" value="${user.id}">change</button></td>
 						</form>
 					</tr>
 				</tbody>

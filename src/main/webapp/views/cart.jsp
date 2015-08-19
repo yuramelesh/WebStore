@@ -56,11 +56,9 @@
 									<button type="submit" class="btn btn-warning">Order
 										now!</button>
 								</form></td>
-
 						</tr>
 					</tbody>
 				</table>
-
 			</div>
 		</div>
 	</div>
